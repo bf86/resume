@@ -1,0 +1,5 @@
+- 2023-09-24 9:26 skills and skill types endpoints, landing page
+- 2023-09-25 8:43 add pg endpoints and remove fixture endpoints
+- 2023-09-26 10:20 /projects and /titles endpoints
+- 2023-09-26 11:11 add rate limit, fix /projects link
+- 2023-09-26 11:40 add seed db script

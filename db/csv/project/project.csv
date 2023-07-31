@@ -1,0 +1,30 @@
+Acceptable Use Policy Changes and Software Approval Process|Identified gaps in acceptable use policy (required software approval but no approval process existed) and ensured they were fixed both by implementing approval process and updating policy to align with current company expectations and practices|Consultant / Stakeholder|CVS Health
+AEM Migration|Drive to move all of CVS' digital assets into AEM|Consultant / Developer Advocate|CVS Health
+API Gateway|Drive to expose CVS' extnerally consumed data through a single gateway|Data Provider|CVS Health
+API Standardization|Modular JSON API implementation including sparse fieldsets and optional inclusion of related resources. Creation of standard libraries for testing and error handling|Senior Developer / Architect|CVS Health
+Artemis Error Handling|Updated API error responses with useful codes / messaging|Developer|CVS Health
+Artemis Price Discrepancy and Small Labels ETL|Merging data from multpile flat files into a Postgres database containing. Data sent to stores to alert them of price changes|Junior Developer|CVS Health
+ATG Deprecation|Retiring legacy servers with critical vulnerabilities|Consultant / Stakeholder|CVS Health
+Athena Azure AD Integration|Migrated from Atlassian Crowd Auth to Azure AD Auth|Individual Contributor|CVS Health
+Athena Azure Migration|Migrated team's largest and most visible application from on-prem vSphere cluster to Microsoft Azure|Individual Contributor / App Lead|CVS Health
+Athena Database Testing|Unit tests for stored database procedures|Individual Contributor|CVS Health
+Athena Ember Rewrite|Moving Athena from custom in house Front-End to EmberJS. Also included incremental enhancements to API and DB, and consolidation of print and digital ad workflows into single app|Junior Developer|CVS Health
+Athena Ember Upgrade|2.8 -> 3.5|Individual Contributor|CVS Health
+Athena ETL Rewrite|Ensured 100% promotional pricing accuracy with additional checks and failsafes|Individual Contributor / App Lead|CVS Health
+Athena Notification Dashboard|New workflow for print circular user groups|Senior Developer|CVS Health
+Athena Postgres Upgrade and Stored Procedure Unit Testing|9.6 -> 12.2 + unit tests for all stored procedures|Individual Contributor|CVS Health
+Build a Basket|NULL|API Consultant|CVS Health
+Crowd Migration|Migrated Atlassian Crowd to new vSphere cluster|Junior Developer|CVS Health
+CVS.com Image Sync Improvements|Improving speed and reliability of image delivery from Athena to CVS.com|Consultant / Application Lead Developer|CVS Health
+Deployment Checklist|Created deployment checklist procedure for Athena, served as model for other apps|Data Provider|CVS Health
+Disaster Recovery|Annual disaster recovery drill planning|Consultant / App Lead|CVS Health
+Docker Desktop Local Development|Introduced docker local development workflow to team and implemented for Athena|Individual Contributor|CVS Health
+Hermes prototype|NULL|Junior developer|CVS Health
+Private Label Tool|NULL|Data Provider|CVS Health
+Promotional Seed Data and Automated Test Suite|Every possible permutation of promotional type to ensure full test run|Individual Contributor|CVS Health
+Retail IO|Single source of truth for retail|Consultant|CVS Health
+Scan for Deals|NULL|Data Provider|CVS Health
+Scheduled Job Recovery Documentation|Documented recovery steps, risks, and mitigations related to a failure of each of Athena's scheduled jobs. Served as model for other apps|Data Provider|CVS Health
+Security and Compliance|Worked toward bringing applications into compliance with corporate standards|Individual Contributor / App Lead|CVS Health
+Solutran|NULL|Data Provider|CVS Health
+Stored Procedure Synchronization|Automated process for synchronizing stored procedure state in DB to repo without migration to reduce regressions|Senior Developer|CVS Health

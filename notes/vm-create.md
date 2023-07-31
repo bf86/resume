@@ -1,0 +1,3 @@
+- Select existing instance and "create similar"
+- US East 4a
+- E2 Micro

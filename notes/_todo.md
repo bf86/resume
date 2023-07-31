@@ -1,0 +1,13 @@
+- DB seed script
+- Check app descriptions (compare to actual resume)
+- Loop for initi-db.sh
+- Rename skills to experience?
+- Error handling
+  - Invalid routes
+  - 500s
+- New endpoints
+  - /hobbies
+  - /releases
+  - POST /interview
+- Accordian
+- Re-implement with different tech stack
