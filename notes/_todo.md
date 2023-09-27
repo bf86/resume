@@ -1,6 +1,3 @@
-- DB seed script
-- Check app descriptions (compare to actual resume)
-- Loop for initi-db.sh
 - Rename skills to experience?
 - Error handling
   - Invalid routes
@@ -8,6 +5,15 @@
 - New endpoints
   - /hobbies
   - /releases
+  - /education
+  - /strengths
+  - /opinions?
   - POST /interview
-- Accordian
-- Re-implement with different tech stack
+- Filter query params
+- CLI? XD
+- Capture visitor IPs, log / ban / report malicious requests (use fail2ban?)
+- Re-implement with different tech stacks
+  - MySQL (/api/mys/skills)
+  - GraphQL
+  - AWS
+- World's smallest Kafka instance lol
