@@ -56,6 +56,12 @@ fastify.get('/api/pg/titles', async function handler(request, reply) {
   corsReply(reply).send(titles);
 });
 
+fastify.get('/api/pg/education', async function handler(request, reply) {
+  let Education = require(`${models}/education`);
+  let education = await Education.list();
+  corsReply(reply).send(education);
+});
+
 /*
   Server
 */

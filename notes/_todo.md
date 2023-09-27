@@ -1,4 +1,5 @@
 - Rename skills to experience?
+- Clean up end point definitions
 - Error handling
   - Invalid routes
   - 500s
@@ -6,7 +7,6 @@
   - /hobbies
   - /releases
   - /education
-  - /strengths
   - /opinions?
   - POST /interview
 - Filter query params

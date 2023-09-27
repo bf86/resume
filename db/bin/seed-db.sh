@@ -3,6 +3,7 @@
 # Vars
 declare -a tables=(
   "app"
+  "education"
   "project"
   "skill"
   "skill_type"

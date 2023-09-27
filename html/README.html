@@ -19,7 +19,7 @@
         <p>A self-demonstrating (partial) resume as API</p>
       </div>
       <div class="container">
-        <div class="accordion" id="accordionExample">
+        <div class="accordion" id="accordionEndpoints">
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button
@@ -33,7 +33,7 @@
                 /api/pg/apps
               </button>
             </h2>
-            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionEndpoints">
               <div class="accordion-body">
                 <textarea name="name" rows="8" cols="80" disabled=true style="font-family:monospace;max-width:100%;">
 [
@@ -70,7 +70,7 @@
                 /api/pg/projects
               </button>
             </h2>
-            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionEndpoints">
               <div class="accordion-body">
                 <textarea name="name" rows="8" cols="80" disabled=true style="font-family:monospace;max-width:100%;">
 [
@@ -107,7 +107,7 @@
             <div
               id="collapseThree"
               class="accordion-collapse collapse"
-              data-bs-parent="#accordionExample"
+              data-bs-parent="#accordionEndpoints"
             >
               <div class="accordion-body">
                 <textarea name="name" rows="8" cols="80" disabled=true style="font-family:monospace;max-width:100%;">
@@ -141,7 +141,7 @@
             <div
               id="collapseFour"
               class="accordion-collapse collapse"
-              data-bs-parent="#accordionExample"
+              data-bs-parent="#accordionEndpoints"
             >
               <div class="accordion-body">
                 <textarea name="name" rows="8" cols="80" disabled=true style="font-family:monospace;max-width:100%;">
@@ -174,7 +174,7 @@
             <div
               id="collapseFive"
               class="accordion-collapse collapse"
-              data-bs-parent="#accordionExample"
+              data-bs-parent="#accordionEndpoints"
             >
               <div class="accordion-body">
                 <textarea name="name" rows="8" cols="80" disabled=true style="font-family:monospace;max-width:100%;">
@@ -190,6 +190,42 @@
                 </textarea>
                 <div class="row">
                   <a href="/api/pg/titles" target=_blank>Try it</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseSix"
+                aria-expanded="false"
+                aria-controls="collapseSix"
+              >
+                /api/pg/education
+              </button>
+            </h2>
+            <div
+              id="collapseSix"
+              class="accordion-collapse collapse"
+              data-bs-parent="#accordionEndpoints"
+            >
+              <div class="accordion-body">
+                <textarea name="name" rows="8" cols="80" disabled=true style="font-family:monospace;max-width:100%;">
+[
+  {
+    institution: String,
+    degree: String,
+    field: String,
+    honors: String
+  },
+  ...
+]
+                </textarea>
+                <div class="row">
+                  <a href="/api/pg/education" target=_blank>Try it</a>
                 </div>
               </div>
             </div>
@@ -246,7 +282,8 @@
             <div id="collapseReleases" class="accordion-collapse collapse" data-bs-parent="#releasesAccordion">
               <div class="accordion-body">
                 <ul style="font-family:monospace">
-                  <li>2023-09-27 00:55 0.0.6 add release information</li>
+                  <li>2023-09-27 20:55 0.0.8 add /education, minor html cleanup</li>
+                  <li>2023-09-27 00:55 0.0.7 add release information</li>
                   <li>2023-09-27 00:55 0.0.6 add accordions to landing page for maximum polka</li>
                   <li>2023-09-26 11:40 0.0.5 add db seed script</li>
                   <li>2023-09-26 11:11 0.0.4 add rate limit, fix /projects link</li>
