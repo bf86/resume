@@ -3,9 +3,14 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <title>Brian86.dev</title>
+    <title>Brian86</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    >
+   <title>Brian86.dev</title>
   </head>
   <body>
     <div class="lead">
@@ -14,45 +19,249 @@
         <p>A self-demonstrating (partial) resume as API</p>
       </div>
       <div class="container">
-        <h2 class="display-5">Endpoints</h2>
-        <ul>
-          <!-- <li><a href="/api/jsonapi/skills" target="_blank">/api/jsonapi/skills</a></li>
-          <li><a href="/api/jsonapi/skill-types" target="_blank">/api/jsonapi/skill-types</a></li> -->
-          <li><a href="/api/pg/apps" target="_blank">/api/pg/apps</a></li>
-          <li><a href="/api/pg/projects" target="_blank">/api/pg/projects</a></li>
-          <li><a href="/api/pg/skills" target="_blank">/api/pg/skills</a></li>
-          <li><a href="/api/pg/skill-types" target="_blank">/api/pg/skill-types</a></li>
-          <li><a href="/api/pg/titles" target="_blank">/api/pg/titles</a></li>
-        </ul>
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseOne"
+                aria-expanded="false"
+                aria-controls="collapseOne"
+              >
+                /api/pg/apps
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <textarea name="name" rows="8" cols="80" disabled=true style="font-family:monospace;max-width:100%;">
+[
+    {
+      name: String
+      database: String
+      api: String
+      frontend: String
+      webserver: String
+      os: String
+      role: String - My role on app (generally my title, sometimes duck typed
+        e.g. consulting on one project while being a senior dev on another),
+      description: String
+    },
+    ...
+]
+                </textarea>
+                <div class="row">
+                    <a href="/api/pg/apps" target=_blank>Try it</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo"
+              >
+                /api/pg/projects
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <textarea name="name" rows="8" cols="80" disabled=true style="font-family:monospace;max-width:100%;">
+[
+  {
+    name: String - Project name (generally an official name within organization
+      or team, in some cases an individual project),
+    description: String
+    role: String - My role on project (generally my title, sometimes duck typed
+      e.g. consulting on one project while being a senior dev on another),
+    organization: String
+  },
+  ...
+]
+                </textarea>
+                <div class="row">
+                    <a href="/api/pg/projects" target=_blank>Try it</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseThree"
+                aria-expanded="false"
+                aria-controls="collapseThree"
+              >
+                /api/pg/skills
+              </button>
+            </h2>
+            <div
+              id="collapseThree"
+              class="accordion-collapse collapse"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <textarea name="name" rows="8" cols="80" disabled=true style="font-family:monospace;max-width:100%;">
+[
+  {
+    name: String,
+    type: String - Can refer to another skill or (at the top level of the skill tree) to a skill type
+  },
+  ...
+]
+                </textarea>
+                <div class="row">
+                    <a href="/api/pg/skills" target=_blank>Try it</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseFour"
+                aria-expanded="false"
+                aria-controls="collapseFour"
+              >
+                /api/pg/skill-types
+              </button>
+            </h2>
+            <div
+              id="collapseFour"
+              class="accordion-collapse collapse"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <textarea name="name" rows="8" cols="80" disabled=true style="font-family:monospace;max-width:100%;">
+[
+  {
+    name: String,
+  },
+  ...
+]
+                </textarea>
+                <div class="row">
+                  <a href="/api/pg/skill-types" target=_blank>Try it</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseFive"
+                aria-expanded="false"
+                aria-controls="collapseFive"
+              >
+                /api/pg/titles
+              </button>
+            </h2>
+            <div
+              id="collapseFive"
+              class="accordion-collapse collapse"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <textarea name="name" rows="8" cols="80" disabled=true style="font-family:monospace;max-width:100%;">
+[
+  {
+    title: String - Practical, colloquial common titles on the team and in the org
+    internal_title: String - Official org title for pay grade and reporting structure
+      e.g. "Sr. Consultant, Marketing" when working as and being referred to as a Junior Developer
+    company: String
+  },
+  ...
+]
+                </textarea>
+                <div class="row">
+                  <a href="/api/pg/titles" target=_blank>Try it</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="container" style="margin-top: 15px">
-        <h2 class="display-5">Tech Stack</h2>
-        <ul>
-          <li>Google Virtual Private Cloud</li>
-          <li>Extremely lightweight E2 Micro Ubuntu VM</li>
-          <li>Docker</li>
-            <li>PostgreSQL Database</li>
-            <li>NodeJS (Fastify) API</li>
-            <li>React Front-End (Under Construction)</li>
-            <li>Nginx Reverse Proxy + SSL</li>
-          <li>Google Cloud Firewall</li>
-        </ul>
+      <div class="container" style="margin-top:15px">
+        <div class="accordion" id="techStackAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseTechStack"
+              aria-expanded="false"
+              aria-controls="collapseTechStack"
+              >
+                Tech Stack
+              </button>
+            </h2>
+            <div id="collapseTechStack" class="accordion-collapse collapse" data-bs-parent="#techStackAccordion">
+              <div class="accordion-body">
+                <ul>
+                  <li>Google Virtual Private Cloud</li>
+                  <li>Extremely lightweight E2 Micro Ubuntu VM</li>
+                  <li>Docker</li>
+                    <li>PostgreSQL Database</li>
+                    <li>NodeJS (Fastify) API</li>
+                    <li>React Front-End (Under Construction)</li>
+                    <li>Nginx Reverse Proxy + SSL</li>
+                  <li>Google Cloud Firewall</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="container" style="margin-top: 15px">
-        <h2 class="display-5">Code</h2>
-        <ul>
-          <li><a href="https://github.com/bf86/resume" target="_blank">GitHub</a></li>
-        </ul>
-      </div>
-      <div class="container" style="margin-top: 15px">
-        <h2 class="display-5">Contact</h2>
-        <ul>
-          <li>brian.g.fink@gmail.com</li>
-          <li>617-460-5059</li>
-          <li><a href="https://www.linkedin.com/in/briangfink/" target="_blank">LinkedIn</a></li>
-        </ul>
+      <div class="container" style="margin-top:15px">
+        <div class="accordion" id="contactAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseContact"
+              aria-expanded="false"
+              aria-controls="collapseContact"
+              >
+                Contact
+              </button>
+            </h2>
+            <div id="collapseContact" class="accordion-collapse collapse" data-bs-parent="#contactAccordion">
+              <div class="accordion-body">
+                <ul>
+                  <li><a href="https://github.com/bf86/resume" target="_blank">GitHub</a></li>
+                  <li><a href="https://www.linkedin.com/in/briangfink/" target="_blank">LinkedIn</a></li>
+                  <li>brian.g.fink@gmail.com</li>
+                  <li>617-460-5059</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script
+       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+       crossorigin="anonymous"
+     >
+    </script>
   </body>
 </html>
