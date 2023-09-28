@@ -18,8 +18,8 @@ services:
       - POSTGRES_DB=${RESUME_DB}
       - POSTGRES_USER=${RESUME_DB_USER}
       - POSTGRES_PASSWORD=${RESUME_DB_PASSWORD}
-    ports:
-      - 5432:5432
+    # ports:
+    #   - 5432:5432
     volumes:
       - ../db:/usr/src/app
       - db:/var/lib/postgresql/data
@@ -34,8 +34,27 @@ services:
     volumes:
       - ../html:/www/data/html
       - ../config/nginx-production.conf:/etc/nginx/nginx.conf
+      - ../log/access.log:/var/log/nginx/access.log
       - ../ssl/fullchain.pem:/ssl/cert.pem
       - ../ssl/privkey.pem:/ssl/key.pem
+  monitor:
+    container_name: monitor
+    # build: ../monitor
+    image: node:latest
+    environment:
+      - POSTGRES_HOST=db
+      - POSTGRES_PORT=${RESUME_DB_PORT}
+      - POSTGRES_DB=${RESUME_DB}
+      - POSTGRES_USER=${RESUME_DB_USER}
+      - POSTGRES_PASSWORD=${RESUME_DB_PASSWORD}
+    links:
+      - api
+      - db
+      - nginx
+    volumes:
+      - ../log/access.log:/var/log/nginx/access.log
+      - ../monitor:/monitor
+    command: tail -f /etc/issue
 volumes:
   db:
     driver: local

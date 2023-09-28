@@ -34,6 +34,24 @@ services:
     volumes:
       - ../html:/www/data/html
       - ../config/nginx-localdev.conf:/etc/nginx/nginx.conf
+      - ../log/access.log:/var/log/nginx/access.log
+  monitor:
+    container_name: monitor
+    # build: ../monitor
+    image: node:latest
+    environment:
+      - POSTGRES_DB=${RESUME_DB}
+      - POSTGRES_USER=${RESUME_DB_USER}
+      - POSTGRES_PASSWORD=${RESUME_DB_PASSWORD}
+      - RESUME_PROJECT_ID=${RESUME_PROJECT_ID_}
+    links:
+      - api
+      - db
+      - nginx
+    volumes:
+      - ../log/access.log:/var/log/nginx/access.log
+      - ../monitor:/monitor
+    command: tail -f /etc/issue
 volumes:
   db:
     driver: local

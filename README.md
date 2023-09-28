@@ -20,7 +20,8 @@ A self-demonstrating (partial) resume as API.
 - Google Cloud Firewall
 
 ## Releases
-- 2023-09-28 07:50 0.0.9 Clean up response definitions
+- 2023-09-28 11:09 0.0.10 add basic monitoring scripts
+- 2023-09-28 07:50 0.0.9 clean up response definitions
 - 2023-09-27 20:55 0.0.8 add /education, minor html cleanup
 - 2023-09-27 08:04 0.0.7 add release information
 - 2023-09-27 00:55 0.0.6 add accordions to landing page for maximum polka

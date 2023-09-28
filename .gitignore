@@ -1,4 +1,5 @@
-node_modules
-*.key
+*.env
 *.csr
-.env
+*.key
+*.log
+node_modules
