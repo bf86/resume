@@ -18,6 +18,8 @@ services:
       - POSTGRES_DB=${RESUME_DB}
       - POSTGRES_USER=${RESUME_DB_USER}
       - POSTGRES_PASSWORD=${RESUME_DB_PASSWORD}
+    ports:
+      - 5432:5432
     volumes:
       - ../db:/usr/src/app
       - db:/var/lib/postgresql/data
