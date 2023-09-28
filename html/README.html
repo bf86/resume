@@ -35,21 +35,22 @@
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionEndpoints">
               <div class="accordion-body">
-                <textarea name="name" rows="8" cols="80" disabled=true style="font-family:monospace;max-width:100%;">
+                <textarea name="name" rows="14" cols="80" disabled=true style="font-family:monospace;max-width:100%;">
 [
-    {
-      name: String
-      database: String
-      api: String
-      frontend: String
-      webserver: String
-      os: String
-      role: String - My role on app (generally my title, sometimes duck typed
-        e.g. consulting on one project while being a senior dev on another),
-      description: String
-    },
-    ...
+  {
+    name: String,
+    database: String,
+    api: String,
+    frontend: String,
+    webserver: String,
+    os: String,
+    role: String,
+    description: String
+  },
+  ...
 ]
+
+// role = My role on app (generally my title, sometimes duck typed e.g. consulting on one project while serving as titled senior dev on another)
                 </textarea>
                 <div class="row">
                     <a href="/api/pg/apps" target=_blank>Try it</a>
@@ -72,18 +73,18 @@
             </h2>
             <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionEndpoints">
               <div class="accordion-body">
-                <textarea name="name" rows="8" cols="80" disabled=true style="font-family:monospace;max-width:100%;">
+                <textarea name="name" rows="10" cols="80" disabled=true style="font-family:monospace;max-width:100%;">
 [
   {
-    name: String - Project name (generally an official name within organization
-      or team, in some cases an individual project),
-    description: String
-    role: String - My role on project (generally my title, sometimes duck typed
-      e.g. consulting on one project while being a senior dev on another),
+    name: String,
+    description: String,
+    role: String,
     organization: String
   },
   ...
 ]
+
+// role = My role on app (generally my title, sometimes duck typed e.g. consulting on one project while serving as titled senior dev on another)
                 </textarea>
                 <div class="row">
                     <a href="/api/pg/projects" target=_blank>Try it</a>
@@ -114,7 +115,7 @@
 [
   {
     name: String,
-    type: String - Can refer to another skill or (at the top level of the skill tree) to a skill type
+    type: String
   },
   ...
 ]
@@ -144,7 +145,7 @@
               data-bs-parent="#accordionEndpoints"
             >
               <div class="accordion-body">
-                <textarea name="name" rows="8" cols="80" disabled=true style="font-family:monospace;max-width:100%;">
+                <textarea name="name" rows="7" cols="80" disabled=true style="font-family:monospace;max-width:100%;">
 [
   {
     name: String,
@@ -177,12 +178,11 @@
               data-bs-parent="#accordionEndpoints"
             >
               <div class="accordion-body">
-                <textarea name="name" rows="8" cols="80" disabled=true style="font-family:monospace;max-width:100%;">
+                <textarea name="name" rows="9" cols="80" disabled=true style="font-family:monospace;max-width:100%;">
 [
   {
-    title: String - Practical, colloquial common titles on the team and in the org
-    internal_title: String - Official org title for pay grade and reporting structure
-      e.g. "Sr. Consultant, Marketing" when working as and being referred to as a Junior Developer
+    title: String,
+    internal_title: String,
     company: String
   },
   ...
@@ -213,7 +213,7 @@
               data-bs-parent="#accordionEndpoints"
             >
               <div class="accordion-body">
-                <textarea name="name" rows="8" cols="80" disabled=true style="font-family:monospace;max-width:100%;">
+                <textarea name="name" rows="11" cols="80" disabled=true style="font-family:monospace;max-width:100%;">
 [
   {
     institution: String,
@@ -282,6 +282,7 @@
             <div id="collapseReleases" class="accordion-collapse collapse" data-bs-parent="#releasesAccordion">
               <div class="accordion-body">
                 <ul style="font-family:monospace">
+                  <li>2023-09-28 07:50 0.0.9 Clean up response definitions</li>
                   <li>2023-09-27 20:55 0.0.8 add /education, minor html cleanup</li>
                   <li>2023-09-27 00:55 0.0.7 add release information</li>
                   <li>2023-09-27 00:55 0.0.6 add accordions to landing page for maximum polka</li>

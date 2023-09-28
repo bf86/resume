@@ -1,0 +1,9 @@
+[
+  {
+    institution: String,
+    degree: String,
+    field: String,
+    honors: String
+  },
+  ...
+]

@@ -1,0 +1,16 @@
+[
+    {
+      name: String,
+      database: String,
+      api: String,
+      frontend: String,
+      webserver: String,
+      os: String,
+      role: String,
+      description: String
+    },
+    ...
+]
+
+role: My role on app (generally my title, sometimes duck typed
+  e.g. consulting on one project while being a senior dev on another)
