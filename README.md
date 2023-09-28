@@ -32,7 +32,6 @@ A self-demonstrating (partial) resume as API.
 
 ## Todo
 - Rename skills to experience?
-- Clean up end point definitions
 - Error handling
   - Invalid routes
   - 500s
