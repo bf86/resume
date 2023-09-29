@@ -2,6 +2,10 @@ const { readLines } = require('ez-tools');
 const { debuglog } = require('util');
 const debuglogFunctions = debuglog('functions');
 
+/*
+  Print a lists of requests from a given IP
+*/
+
 async function requestsByIp(ip) {
   debuglogFunctions('requestsByIp');
   let logLines = await readLines('/var/log/nginx/access.log');

@@ -1,7 +1,11 @@
 const { mapBy, readLines, shell } = require('ez-tools');
 const { debuglog } = require('util');
 const debuglogFunctions = debuglog('functions');
-const db = require(`${__dirname}/db-local.js`);
+const db = require(`${__dirname}/db-production.js`);
+
+/*
+  Firewall reject all IPs that have been assessed as data theft attempt
+*/
 
 async function blockDataAttempts() {
   debuglogFunctions('blockDataAttempts');

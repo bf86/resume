@@ -4,6 +4,7 @@ const debuglogFunctions = debuglog('functions');
 const db = require(`${__dirname}/db-local.js`);
 
 /*
+  Record all IPs that have requested from server
   Yes, there are existing tools to do this better
   But it seemed like a worthwhile exercise to create my own
 */
