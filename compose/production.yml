@@ -18,11 +18,15 @@ services:
       - POSTGRES_DB=${RESUME_DB}
       - POSTGRES_USER=${RESUME_DB_USER}
       - POSTGRES_PASSWORD=${RESUME_DB_PASSWORD}
-    # ports:
-    #   - 5432:5432
+    ports:
+      - 5432:5432
     volumes:
-      - ../db:/usr/src/app
       - db:/var/lib/postgresql/data
+      - ../db:/usr/src/app
+      - ../config/pg_hba.conf:/var/lib/postgresql/data/pg_hba.confg
+      - ../config/postgresql.conf:/var/lib/postgresql/data/postgresql.conf
+      - ../ssl/server.crt:/var/lib/postgresql/data/server.crt
+      - ../ssl/server.key:/var/lib/postgresql/data/server.key
   nginx:
     container_name: nginx
     image: nginx:latest
