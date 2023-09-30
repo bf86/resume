@@ -24,3 +24,4 @@ MAILTO=""
 # m h  dom mon dow   command
   0 *  *   *   *     bash /home/Brian/resume/cron/api.sh
   0 *  *   *   *     bash /home/Brian/resume/cron/space.sh
+  0 *  *   *   *     bash /home/Brian/resume/cron/ips.sh
