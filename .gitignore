@@ -4,3 +4,4 @@
 *.log
 *.pem
 node_modules
+scratch/*

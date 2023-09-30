@@ -2,6 +2,7 @@
 source $HOME/.bashrc
 
 # Vars
+export MONITOR_RECIPIENT="brian.g.fink@gmail.com"
 
 # Docker functions
 function dbash() { sudo docker exec -it $1 bash; }
