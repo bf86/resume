@@ -4,7 +4,7 @@ require_relative 'helpers/requests_by_ip'
 require_relative 'helpers/db'
 
 # 1. Gets a list of IPs that have not been assessed yet and their requests
-# 2. Presents to user with prompts to categorize (benign / suspicious / data theft attempt)
+# 2. Presents to user with prompts to categorize (benign / suspicious / data attempt)
 # 3. Updates DB accordingly
 
 def ip_assess
@@ -20,10 +20,11 @@ def ip_assess
 SQL
   db.exec(get_new_ips_sql) do |ip_result|
     ips = ip_result.map { |row| row['ip'] }
+    count = ips.length
     ips.each do |ip|
       if !ip.match(/\d+/) then next end
       puts ''
-      puts "~#{ips.length} ips left to assess"
+      puts "~#{count} ips left to assess"
       puts ip
       puts requests_by_ip(ip)
       puts 'do any of these requests appear benign?'
@@ -36,6 +37,7 @@ SQL
         UPDATE ip SET benign = $1, suspicious = $2, data_attempt = $3 WHERE ip = $4;
 SQL
       db.exec(update_ip_sql, [benign, suspicious, data_attempt, ip])
+      count -= 1
     end
   end
 end

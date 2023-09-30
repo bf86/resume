@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require_relative './helpers/db'
+require_relative './helpers/get_data_attempt_defs'
 
 # Record all IPs that have requested from server
 # Yes, there are existing tools to do this better
@@ -19,8 +20,9 @@ def record_ips()
     if !ip then
       return;
     end
-    data_attempt = line.match(/\.env/) || line.match(/XDEBUG_SESSION_START/) ? true : nil;
-    puts ip
+    data_attempt = get_data_attempt_defs().any? { |attempt_def| line.match(attempt_def) }
+    # data_attempt = line.match(/\.env/) || line.match(/XDEBUG_SESSION_START/) ? true : nil;
+    puts "#{ip} data_attempt #{data_attempt}"
     record_ip_sql = <<-SQL
       INSERT INTO
         ip (ip, data_attempt)

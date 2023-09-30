@@ -3,7 +3,7 @@
 require_relative './helpers/db_production'
 require_relative './helpers/get_blocked_hacker_ips'
 
-# Firewall reject all IPs that have been assessed as data theft attempt
+# Firewall reject all IPs that have been flagged as data attempt
 
 def block_data_attempts()
   get_data_attempts_sql = "SELECT ip FROM ip WHERE data_attempt = TRUE AND ip != '#{ENV['MY_IP']}'";
