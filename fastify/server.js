@@ -28,21 +28,11 @@ fastify.get('/api/pg/projects', async function handler(request, reply) {
   corsReply(reply).send(projects);
 });
 
-// fastify.get('/api/jsonapi/skills', function handler(request, reply) {
-//   let skills = require(`${fixtures}/skills`);
-//   corsReply(reply).send(skills);
-// });
-
 fastify.get('/api/pg/skills', async function handler(request, reply) {
   let Skill = require(`${models}/skill`);
   let skills = await Skill.list();
   corsReply(reply).send(skills);
 });
-
-// fastify.get('/api/jsonapi/skill-types', function handler(request, reply) {
-//   const skillTypes = require(`${fixtures}/skill-types`);
-//   corsReply(reply).send(skillTypes);
-// });
 
 fastify.get('/api/pg/skill-types', async function handler(request, reply) {
   let SkillType = require(`${models}/skillType`);

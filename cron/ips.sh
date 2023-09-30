@@ -1,5 +1,7 @@
 #/bin/bash
 
+# Log all IPs from nginx logs to db and flag malicious
+
 source $HOME/.bash_profile
 
 dir="$(dirname "$0")"

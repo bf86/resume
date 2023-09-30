@@ -3,5 +3,4 @@ COPY
 FROM
   '/usr/src/app/csv/ip/ip.csv'
 DELIMITER '|'
-CSV HEADER
-NULL AS '';
+CSV HEADER NULL AS '';

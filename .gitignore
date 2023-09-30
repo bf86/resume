@@ -1,7 +1,9 @@
-*.env
 *.csr
+*.env
 *.key
 *.log
 *.pem
+dockerfiles
+fixtures
 node_modules
-scratch/*
+scratch

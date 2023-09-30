@@ -22,7 +22,7 @@ SQL
     ips = ip_result.map { |row| row['ip'] }
     count = ips.length
     ips.each do |ip|
-      if !ip.match(/\d+/) then next end
+      # if !ip.match(/\d+/) then next end
       puts ''
       puts "~#{count} ips left to assess"
       puts ip

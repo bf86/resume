@@ -1,6 +1,4 @@
-- PG SSL
 - Rename skills to experience?
-- Clean up end point definitions
 - Error handling
   - Invalid routes
   - 500s
@@ -12,9 +10,9 @@
   - POST /interview
 - Filter query params
 - CLI? XD
-- Capture visitor IPs, log / ban / report malicious requests (use fail2ban?)
 - Re-implement with different tech stacks
   - MySQL (/api/mys/skills)
   - GraphQL
   - AWS
 - World's smallest Kafka instance lol
+- fail2ban instead of funny custom solution

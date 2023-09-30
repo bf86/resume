@@ -1,5 +1,7 @@
 #/bin/bash
 
+# Check disk space
+
 source $HOME/.bash_profile
 
 dir="$(dirname "$0")"

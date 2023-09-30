@@ -9,19 +9,14 @@ require_relative './helpers/get_data_attempt_defs'
 
 def record_ips()
   def record_line(line)
-    if !line then
-      return;
-    end
+    if !line then return end
     segment_one = line.split(' - ')[0];
-    if !segment_one then
-      return;
-    end
+    if !segment_one then return end
     ip = segment_one.match(/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/)
     if !ip then
       return;
     end
     data_attempt = get_data_attempt_defs().any? { |attempt_def| line.match(attempt_def) }
-    # data_attempt = line.match(/\.env/) || line.match(/XDEBUG_SESSION_START/) ? true : nil;
     puts "#{ip} data_attempt #{data_attempt}"
     record_ip_sql = <<-SQL
       INSERT INTO

@@ -1,65 +1,31 @@
 version: "3.8"
 services:
   api:
-    container_name: api
-    build: ../fastify
-    links:
-      - db
-    environment:
-      - POSTGRES_DB=${RESUME_DB}
-      - POSTGRES_USER=${RESUME_DB_USER}
-      - POSTGRES_PASSWORD=${RESUME_DB_PASSWORD}
-    volumes:
-      - ../fastify:/usr/src/app
+    extends:
+      file: base.yml
+      service: api
   db:
     container_name: db
-    build: ../db
-    environment:
-      - POSTGRES_DB=${RESUME_DB}
-      - POSTGRES_USER=${RESUME_DB_USER}
-      - POSTGRES_PASSWORD=${RESUME_DB_PASSWORD}
-    ports:
-      - 5432:5432
+    extends:
+      file: base.yml
+      service: db
     volumes:
-      - db:/var/lib/postgresql/data
-      - ../db:/usr/src/app
       - ../config/pg_hba.conf:/var/lib/postgresql/data/pg_hba.confg
       - ../config/postgresql.conf:/var/lib/postgresql/data/postgresql.conf
       - ../ssl/server.crt:/var/lib/postgresql/data/server.crt
       - ../ssl/server.key:/var/lib/postgresql/data/server.key
   nginx:
-    container_name: nginx
-    image: nginx:latest
-    links:
-      - api
-    ports:
-      - 80:80
-      - 443:443
+    extends:
+      file: base.yml
+      service: nginx
     volumes:
-      - ../html:/www/data/html
       - ../config/nginx-production.conf:/etc/nginx/nginx.conf
-      - ../log/access.log:/var/log/nginx/access.log
       - ../ssl/fullchain.pem:/ssl/cert.pem
       - ../ssl/privkey.pem:/ssl/key.pem
   monitor:
-    container_name: monitor
-    build: ../monitor
-    # image: ruby:latest
-    environment:
-      - POSTGRES_HOST=db
-      - POSTGRES_PORT=${RESUME_DB_PORT}
-      - POSTGRES_DB=${RESUME_DB}
-      - POSTGRES_USER=${RESUME_DB_USER}
-      - POSTGRES_PASSWORD=${RESUME_DB_PASSWORD}
-      - NGINX_LOG_PATH=/log
-    links:
-      - api
-      - db
-      - nginx
-    volumes:
-      - ../log/access.log:/log/access.log
-      - ../monitor:/monitor
-    command: tail -f /etc/issue
+    extends:
+      file: base.yml
+      service: monitor
 volumes:
   db:
     driver: local

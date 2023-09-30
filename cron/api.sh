@@ -1,5 +1,7 @@
 #/bin/bash
 
+# Confirm all API endpoint responses
+
 source $HOME/.bash_profile
 
 dir="$(dirname "$0")"

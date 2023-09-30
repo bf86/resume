@@ -4,7 +4,7 @@ def get_data_attempt_defs()
   [
     '.env',
     '.git',
-    '.php',
+    '.php', # because this isn't a php app
     '/actuator',
     '/admin',
     '/boaform',
