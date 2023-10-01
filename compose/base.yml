@@ -1,23 +1,28 @@
 version: "3.8"
 services:
+  pg_default:
+    environment:
+      - POSTGRES_HOST=db
+      - POSTGRES_PORT=${RESUME_DB_PORT}
+      - POSTGRES_DB=${RESUME_DB}
+      - POSTGRES_USER=${RESUME_DB_USER}
+      - POSTGRES_PASSWORD=${RESUME_DB_PASSWORD}
   api:
+    extends:
+      service: pg_default
     container_name: api
     build: ../fastify
     links:
       - db
-    environment:
-      - POSTGRES_DB=${RESUME_DB}
-      - POSTGRES_USER=${RESUME_DB_USER}
-      - POSTGRES_PASSWORD=${RESUME_DB_PASSWORD}
     volumes:
       - ../fastify:/usr/src/app
   db:
+    extends:
+      service: pg_default
     container_name: db
     build: ../db
     environment:
-      - POSTGRES_DB=${RESUME_DB}
-      - POSTGRES_USER=${RESUME_DB_USER}
-      - POSTGRES_PASSWORD=${RESUME_DB_PASSWORD}
+      PGOPTIONS: "-c custom.repl_user=${RESUME_DB_USER} -c custom.repl_pass=${RESUME_DB_PASSWORD}"
     ports:
       - 5432:5432
     volumes:
@@ -35,14 +40,11 @@ services:
       - ../html:/www/data/html
       - ../log/access.log:/var/log/nginx/access.log
   monitor:
+    extends:
+      service: pg_default
     container_name: monitor
     build: ../monitor
     environment:
-      - POSTGRES_HOST=db
-      - POSTGRES_PORT=${RESUME_DB_PORT}
-      - POSTGRES_DB=${RESUME_DB}
-      - POSTGRES_USER=${RESUME_DB_USER}
-      - POSTGRES_PASSWORD=${RESUME_DB_PASSWORD}
       - RESUME_PROJECT_ID=${RESUME_PROJECT_ID}
     links:
       - api
@@ -51,7 +53,7 @@ services:
     volumes:
       - ../log/access.log:/var/log/nginx/access.log
       - ../monitor:/monitor
-    command: tail -f /etc/issue
+    command: tail -f /etc/issue # Arbitrary command to keep container running
 volumes:
   db:
     driver: local
