@@ -2,38 +2,64 @@
 
 require_relative './helpers/db'
 require_relative './helpers/get_data_attempt_defs'
+require_relative './helpers/get_benign_defs'
 
 # Record all IPs that have requested from server
 # Yes, there are existing tools to do this better
 # But it seemed like a worthwhile exercise to create my own
 
 def record_ips()
+  # Vars
+  @ip_count = 0
+  @benign_count = 0
+  @data_attempt_count = 0
+
   def record_line(line)
-    if !line then return end
+    if !line
+      return end
+
     segment_one = line.split(' - ')[0];
-    if !segment_one then return end
+
+    if !segment_one
+      return end
+
     ip = segment_one.match(/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/)
-    if !ip then
-      return;
-    end
-    data_attempt = get_data_attempt_defs().any? { |attempt_def| line.match(attempt_def) }
-    puts "#{ip} data_attempt #{data_attempt}"
+
+    if !ip
+      return end
+
+    # puts ip
+
+    @ip_count += 1
+
+    benign = get_benign_defs().any? { |benign_def| line.match(benign_def) } || nil
+    data_attempt = get_data_attempt_defs().any? { |attempt_def| line.match(attempt_def) } || nil
+
+    @benign_count += 1 if benign
+    @data_attempt_count += 1 if data_attempt
+
     record_ip_sql = <<-SQL
       INSERT INTO
-        ip (ip, data_attempt)
+        ip (ip, benign, data_attempt)
       VALUES
-        ($1, $2)
+        ($1, $2, $3)
       ON CONFLICT
         (ip)
       DO UPDATE SET
-        data_attempt = ($2 OR ip.data_attempt);
+        benign = ($2 OR ip.benign),
+        data_attempt = ($3 OR ip.data_attempt);
 SQL
-    db.exec(record_ip_sql, [ip, data_attempt])
+
+    db.exec(record_ip_sql, [ip, benign, data_attempt])
   end
 
   File.open("#{ENV['NGINX_LOG_PATH']}/access.log").each do |line|
     record_line(line)
   end
+
+  puts "recorded or updated #{@ip_count} IPs"
+  puts "#{@benign_count} made requests flagged benign"
+  puts "#{@data_attempt_count} made requests flagged data_attempt"
 end
 
 record_ips()

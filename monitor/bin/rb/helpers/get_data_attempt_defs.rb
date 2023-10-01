@@ -9,6 +9,7 @@ def get_data_attempt_defs()
     '/admin',
     '/boaform',
     '/config',
-    '/remote'
+    '/remote',
+    '/wsman'
   ]
 end
