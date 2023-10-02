@@ -46,6 +46,7 @@ services:
     build: ../monitor
     environment:
       - RESUME_PROJECT_ID=${RESUME_PROJECT_ID}
+      - NGINX_LOG_PATH=/var/log/nginx
     links:
       - api
       - db
