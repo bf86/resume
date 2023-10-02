@@ -10,7 +10,7 @@ puts "dbname: #{ENV['POSTGRES_DB']}"
 # ok = gets.chomp == 'y'
 # if !ok then exit 1 end
 
-def db()
+def db
   return PG.connect(
     host: ENV['POSTGRES_HOST'],
     dbname: ENV['POSTGRES_DB'],

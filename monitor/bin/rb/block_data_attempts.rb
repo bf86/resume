@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
-require_relative './helpers/db_production'
-require_relative './helpers/get_blocked_hacker_ips'
+require_relative 'helpers/db_production'
+require_relative 'helpers/get_blocked_hacker_ips'
 
 # Firewall reject all IPs that have been flagged as data attempt
 

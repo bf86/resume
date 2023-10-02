@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# code-sync.sh
 # copies code to relevant host
 
 dir="$(dirname "$0")"

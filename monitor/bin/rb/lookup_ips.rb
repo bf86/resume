@@ -1,5 +1,5 @@
-require_relative './helpers/db'
-# require_relative './helpers/whois'
+require_relative 'helpers/db'
+# require_relative 'helpers/whois'
 
 # Get whois info about all ips and add to database
 # This is useless since the organisation isn't really a useful field

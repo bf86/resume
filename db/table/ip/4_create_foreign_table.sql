@@ -4,6 +4,7 @@ CREATE FOREIGN TABLE ip_production (
   ip            TEXT,
   benign        BOOLEAN,
   consumer      BOOLEAN,
+  crawler       BOOLEAN,
   suspicious    BOOLEAN,
   data_attempt  BOOLEAN
 )

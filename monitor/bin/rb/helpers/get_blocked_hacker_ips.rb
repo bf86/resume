@@ -1,6 +1,6 @@
 # Returns an array of IPs that have been blocked by the no-hackers rule
 
-def get_blocked_hacker_ips()
+def get_blocked_hacker_ips
   command = "gcloud compute --project=#{ENV['RESUME_PROJECT_ID']} firewall-rules describe no-hackers"
   result = `#{command}`
   lines = result.split("\n")
