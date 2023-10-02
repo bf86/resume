@@ -1,12 +1,10 @@
-# Returns an array of strings that suggest a possibly malicious request
+# Returns an array of strings to mark suspicious
 
 def suspicious_defs()
   [
     '/.well-known/security.txt',
     '/geoserver/web/',
     '/hudson',
-    '/robots.txt',
-    'searches across the global',
     'MGLNDD_34.150.128.93_443'
   ]
 end

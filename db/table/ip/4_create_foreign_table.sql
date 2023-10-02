@@ -3,6 +3,7 @@ DROP FOREIGN TABLE IF EXISTS ip_production;
 CREATE FOREIGN TABLE ip_production (
   ip            TEXT,
   benign        BOOLEAN,
+  consumer      BOOLEAN,
   suspicious    BOOLEAN,
   data_attempt  BOOLEAN
 )
