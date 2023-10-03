@@ -6,7 +6,7 @@ CREATE FOREIGN TABLE ip_production (
   consumer      BOOLEAN,
   crawler       BOOLEAN,
   suspicious    BOOLEAN,
-  data_attempt  BOOLEAN
+  hacker  BOOLEAN
 )
 SERVER resume_production
 OPTIONS (table_name 'ip');

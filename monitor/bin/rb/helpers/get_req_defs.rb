@@ -42,7 +42,7 @@ def suspicious_defs
   ]
 end
 
-def get_data_attempt_defs
+def get_hacker_defs
   [
     '.env',
     '.git',

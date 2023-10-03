@@ -7,7 +7,7 @@ def get_uncategorized_ips
     FROM
       ip
     WHERE
-      data_attempt IS NULL
+      hacker IS NULL
       AND benign IS NULL
       AND consumer IS NULL
       AND crawler IS NULL

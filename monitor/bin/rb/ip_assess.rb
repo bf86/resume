@@ -21,11 +21,11 @@ def ip_assess
     puts 'do any of these requests appear suspicious?'
     suspicious = gets.chomp == 'y' ? true : nil
     puts 'do any of these requests appear to be data attempts?'
-    data_attempt = gets.chomp == 'y' ? true : nil
+    hacker = gets.chomp == 'y' ? true : nil
     update_ip_sql = <<-SQL
-      UPDATE ip SET benign = $1, suspicious = $2, data_attempt = $3 WHERE ip = $4;
+      UPDATE ip SET benign = $1, suspicious = $2, hacker = $3 WHERE ip = $4;
 SQL
-    db.exec(update_ip_sql, [benign, suspicious, data_attempt, ip])
+    db.exec(update_ip_sql, [benign, suspicious, hacker, ip])
   end
 end
 

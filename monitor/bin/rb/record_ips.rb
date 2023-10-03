@@ -14,7 +14,7 @@ def record_ips()
   @benign_ips = {}
   @crawler_ips = {}
   @consumer_ips = {}
-  @data_attempt_ips = {}
+  @hacker_ips = {}
 
   def record_line(line)
     if !line
@@ -37,17 +37,17 @@ def record_ips()
     benign = get_benign_defs().any? { |benign_def| line.match(benign_def) } || nil
     consumer = get_consumer_defs().any? { |consumer_def| line.match(consumer_def) } || nil
     crawler = get_crawler_defs().any? { |crawler_def| line.match(crawler_def) } || nil
-    data_attempt = get_data_attempt_defs().any? { |attempt_def| line.match(attempt_def) } || nil
+    hacker = get_hacker_defs().any? { |attempt_def| line.match(attempt_def) } || nil
 
     @benign_ips[ip] = true if benign
     @consumer_ips[ip] = true if consumer
     @crawler_ips[ip] = true if crawler
-    @data_attempt_ips[ip] = true if data_attempt
-    @categorized_ips[ip] = true if benign || consumer || crawler || data_attempt
+    @hacker_ips[ip] = true if hacker
+    @categorized_ips[ip] = true if benign || consumer || crawler || hacker
 
     record_ip_sql = <<-SQL
       INSERT INTO
-        ip (ip, benign, consumer, crawler, data_attempt)
+        ip (ip, benign, consumer, crawler, hacker)
       VALUES
         ($1, $2, $3, $4, $5)
       ON CONFLICT
@@ -56,10 +56,10 @@ def record_ips()
         benign = ($2 OR ip.benign),
         consumer = ($3 OR ip.consumer),
         crawler = ($4 OR ip.crawler),
-        data_attempt = ($5 OR ip.data_attempt);
+        hacker = ($5 OR ip.hacker);
 SQL
 
-    db.exec(record_ip_sql, [ip, benign, consumer, crawler, data_attempt])
+    db.exec(record_ip_sql, [ip, benign, consumer, crawler, hacker])
   end
 
   File.open("#{ENV['NGINX_LOG_PATH']}/access.log").each do |line|
@@ -70,7 +70,7 @@ SQL
   puts "#{@benign_ips.length} made requests marked benign"
   puts "#{@consumer_ips.length} made requests marked consumer"
   puts "#{@crawler_ips.length} made requests marked crawler"
-  puts "#{@data_attempt_ips.length} made requests flagged data_attempt"
+  puts "#{@hacker_ips.length} made requests flagged hacker"
   puts "#{@ips.length - @categorized_ips.length} were not categorized"
 end
 

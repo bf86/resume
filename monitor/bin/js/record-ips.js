@@ -33,13 +33,13 @@ async function recordIps() {
     transactions[ip] = 'pending';
     let sql = `
       INSERT INTO
-        ip (ip, data_attempt)
+        ip (ip, hacker)
       VALUES
         ($1, $2)
       ON CONFLICT
         (ip)
       DO UPDATE SET
-        data_attempt = ($2 OR ip.data_attempt);
+        hacker = ($2 OR ip.hacker);
     `;
     await db.query(sql, [ip, dataAttempt])
       .catch(function(err) {

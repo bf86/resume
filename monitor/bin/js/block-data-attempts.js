@@ -9,7 +9,7 @@ const db = require(`${__dirname}/db-production.js`);
 
 async function blockDataAttempts() {
   debuglogFunctions('blockDataAttempts');
-  let sql = 'SELECT ip FROM ip WHERE data_attempt = TRUE';
+  let sql = 'SELECT ip FROM ip WHERE hacker = TRUE';
   let result = await db.query(sql);
   let dataAttemptIps = mapBy(result.rows, 'ip');
   let dataAttemptRanges = dataAttemptIps.map(ip => `${ip}/32`);

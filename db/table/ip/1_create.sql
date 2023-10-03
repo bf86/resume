@@ -6,5 +6,5 @@ CREATE TABLE ip (
   consumer      BOOLEAN,
   crawler       BOOLEAN,
   suspicious    BOOLEAN,
-  data_attempt  BOOLEAN
+  hacker  BOOLEAN
 );

@@ -5,12 +5,12 @@ require_relative 'helpers/get_blocked_hacker_ips'
 
 # Firewall reject all IPs that have been flagged as data attempt
 
-def block_data_attempts()
-  get_data_attempts_sql = "SELECT ip FROM ip WHERE data_attempt = TRUE AND ip != '#{ENV['MY_IP']}'";
-  db.exec(get_data_attempts_sql) do |result|
-    data_attempt_ips = result.map { |row| row['ip'] }
+def block_hackers()
+  get_hackers_sql = "SELECT ip FROM ip WHERE hacker = TRUE AND ip != '#{ENV['MY_IP']}'";
+  db.exec(get_hackers_sql) do |result|
+    hacker_ips = result.map { |row| row['ip'] }
     blocked_hacker_ips = get_blocked_hacker_ips()
-    all_ips_to_block = data_attempt_ips.concat(blocked_hacker_ips).uniq()
+    all_ips_to_block = hacker_ips.concat(blocked_hacker_ips).uniq()
     ranges_to_block = all_ips_to_block.map { |ip| "#{ip}/32" }
     reject_string = ranges_to_block.sort().join(',')
     block_command = "gcloud compute --project=#{ENV['RESUME_PROJECT_ID']} "
@@ -28,4 +28,4 @@ def block_data_attempts()
   end
 end
 
-block_data_attempts()
+block_hackers()

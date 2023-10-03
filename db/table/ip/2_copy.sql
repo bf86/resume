@@ -1,5 +1,5 @@
 COPY
-  ip(ip,organization,data_attempt,investigate,benign,suspicious)
+  ip(ip,organization,hacker,investigate,benign,suspicious)
 FROM
   '/usr/src/app/csv/ip/ip.csv'
 DELIMITER '|'
