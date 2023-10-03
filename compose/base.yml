@@ -21,8 +21,6 @@ services:
       service: pg_default
     container_name: db
     build: ../db
-    environment:
-      PGOPTIONS: "-c custom.repl_user=${RESUME_DB_USER} -c custom.repl_pass=${RESUME_DB_PASSWORD}"
     ports:
       - 5432:5432
     volumes:
