@@ -1,4 +1,4 @@
-[
+const educationDef = `[
   {
     institution: String,
     degree: String,
@@ -6,4 +6,6 @@
     honors: String
   },
   ...
-]
+]`;
+
+export default educationDef;

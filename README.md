@@ -44,7 +44,6 @@ A self-demonstrating (partial) resume as API.
   - POST /interview XD
 - Filter query params
 - CLI? XD
-- Capture visitor IPs, log / ban / report malicious requests (use fail2ban?)
 - Re-implement with different tech stacks
   - MySQL (/api/mys/skills)
   - GraphQL

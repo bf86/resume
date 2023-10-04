@@ -16,3 +16,4 @@
   - AWS
 - World's smallest Kafka instance lol
 - fail2ban instead of funny custom solution
+- React reportWebVitals
