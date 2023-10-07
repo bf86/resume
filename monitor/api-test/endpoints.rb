@@ -25,7 +25,8 @@ PROJECT_KEYS = [
 
 SKILL_KEYS = [
   'type',
-  'name'
+  'name',
+  'detail'
 ]
 
 SKILL_TYPE_KEYS = [

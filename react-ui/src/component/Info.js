@@ -34,6 +34,7 @@ function Releases() {
             <Accordion.Header>Releases</Accordion.Header>
             <Accordion.Body>
             <ul style={{"font-family": "monospace"}}>
+              <li>2023-10-08 21:42 0.1.1 An actual front end sort of isntead of API docs</li>
               <li>2023-10-07 15:20 0.1.0 Move API documentation to React</li>
               <li>2023-09-29 11:59 0.0.11 SSL for pg, create .bash_profile, add ncdu to provision script</li>
               <li>2023-09-28 11:09 0.0.10 add basic monitoring scripts</li>

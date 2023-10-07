@@ -6,12 +6,19 @@ declare -a tables=(
   "education"
   "ip"
   "project"
-  "skill"
   "skill_type"
+  "skill"
   "title"
 )
 dir="$(dirname "$0")"
 psql_string="psql -h localhost -d $POSTGRES_DB -U $POSTGRES_USER"
+
+# Drop
+for table in "${tables[@]}"
+do
+  echo "Dropping table $table:"
+  $psql_string -c "DROP TABLE IF EXISTS $table"
+done
 
 # Create
 for table in "${tables[@]}"

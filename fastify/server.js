@@ -53,7 +53,7 @@ fastify.get('/api/pg/projects/:name', async function handler(request, reply) {
 
 fastify.get('/api/pg/skills', async function handler(request, reply) {
   let Skill = require(`${models}/skill`);
-  let res = await Skill.list();
+  let res = await Skill.listByType();
   corsReply(reply).send(res);
 });
 

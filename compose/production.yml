@@ -4,6 +4,8 @@ services:
     extends:
       file: base.yml
       service: api
+    environment:
+      - PRODUCTION=true
   db:
     container_name: db
     extends:

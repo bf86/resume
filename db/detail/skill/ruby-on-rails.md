@@ -1,0 +1,1 @@
+Much of what I wrote about Ruby applies to Rails as well, although I think I might be leaning towards Node's Fastify API framework + Postgres as my default backend first choice. Regardless, I am eager to revisit rails and see how it has improved since I last used it — I plan to re-implement this resume's API in Rails after I finish the Fastify version.

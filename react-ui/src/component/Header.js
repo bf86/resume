@@ -6,7 +6,7 @@ function Header() {
     <div className="Header">
       <Container>
         <h1 class="display-4">Brian86.dev</h1>
-        <p>A (partial but under rapid development) resume as REST API</p>
+        <p>A (partial but under rapid development) resume site / Rest API</p>
       </Container>
     </div>
   );

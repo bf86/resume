@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import Container from 'react-bootstrap/Container';
 
-import Endpoints from './component/Endpoints';
 import Header from './component/Header';
 import Info from './component/Info';
+import Resume from './component/Resume';
+import Skills from './component/Skills';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -13,7 +14,7 @@ root.render(
   <React.StrictMode>
     <Container>
       <Header />
-      <Endpoints />
+      <Resume />
       <Info />
     </Container>
   </React.StrictMode>

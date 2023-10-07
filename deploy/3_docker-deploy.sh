@@ -11,5 +11,5 @@ compose_cmd="sudo docker-compose -f /home/$RESUME_USER/resume/compose/production
 
 # Deploy
 $ssh_cmd $compose_cmd stop $containers
-$ssh_cmd $compose_cmd rm $containers
+$ssh_cmd $compose_cmd rm -f $containers
 $ssh_cmd $compose_cmd up -d $containers

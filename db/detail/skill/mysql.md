@@ -1,0 +1,1 @@
+I have less MySQL experience than PostgreSQL, but I did use it from time to time, mostly earlier in my career, when helping with an app other than Athena, which is what I primarily worked on. I'd be happy to focus more on MySQL for the right role.

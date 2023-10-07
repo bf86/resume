@@ -5,8 +5,8 @@ declare -a tables=(
   "app"
   "education"
   "project"
-  "skill"
   "skill_type"
+  "skill"
   "title"
 )
 dir="$(dirname "$0")"

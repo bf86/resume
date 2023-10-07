@@ -1,5 +1,3 @@
-DROP TABLE IF EXISTS project;
-
 CREATE TABLE project (
   name                     TEXT PRIMARY KEY,
   description              TEXT,

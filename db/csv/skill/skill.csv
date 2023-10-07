@@ -1,48 +1,77 @@
-Agile|Methodology
-Ansible Tower|Server Automation
-Bash|Language
-Bootstrap|Front-End Framework
-Consul|Monitoring
-Control-M|Infrastructure Automation
-CSS|Front-End
-Debian|Linux
-DNS|DevSecOps
-Docker|Containerization
-EmberJS|Front-End Framework
-Express (Open API / Swagger)|API Framework
-Fastify|Framework
-Firewall|DevSecOps
-Git|Version Control
-Google Cloud|Cloud
-Graylog|Monitoring
-HTML|Language
-Jenkins|CI/CD
-jQuery|Front-End
-JSON API|Standards
-Linux|Operating System
-Microservices|Architecture
-Microsoft Azure|Cloud
-MongoDB|Nosql
-MySQL|Database
-Nagios|Monitoring
-NodeJS|Language
-Object Oriented Programming|Methodology
-Open API (Swagger)|Framework
-Oracle|Database
-PCI DSS|Standards
-PHP|Language
-PostgreSQL|Database
-Python|Language
-Rasbian|Linux
-Ruby on Rails|Framework
-Ruby|Language
-Rundeck|Infrastructure Automation
-Scrum|Methodology
-Security Analysis|DevSecOps
-SQLite|Database
-SVN|Version Control
-Test Driven Development|Methodology
-Ubuntu|Linux
-Waterfall|Methodology
-Windows|Operating System
-XML|Data
+Agile|Methodology|1
+Ansible Tower|Infrastructure Automation|1
+AWS S3 Photo Bucket|Cloud|6
+Bash|Language|3
+Bootstrap|UI/UX|3
+Communication|Soft Skills|3
+Consul|Monitoring|2
+Control-M|Infrastructure Automation|2
+CSS|UI/UX|3
+Custom Solutions|CI/CD|5
+Custom Solutions|Infrastructure Automation|99
+Custom Solutions|Monitoring|99
+Debian|Operating System|4
+DNS|DevSecOps|4
+Docker Swarm|Containerization|2
+Docker|Containerization|1
+EmberJS|UI/UX|1
+Estimation|Project Management|2
+ETL|Database|3
+Express|API|2
+Fastify|API|3
+Firewall|DevSecOps|2
+Functional Programming|Pattern|2
+Git|Version Control|1
+Google Cloud|Cloud|1
+Graylog|Monitoring|2
+HTML|UI/UX|3
+IaaS|Cloud|3
+Jenkins|CI/CD|2
+jQuery|UI/UX|3
+JSON API|Standards|2
+Kanban|Project Management|4
+Leadership|Soft Skills|2
+Linux|Operating System|1
+Load Testing|API|50
+MacOS|Operating System|3
+Mentoring|Soft Skills|1
+Microservices|Architecture|1
+Microsoft Azure|Cloud|2
+MongoDB|Database|99
+Monoliths|Architecture|2
+MySQL|Database|2
+Nagios|Monitoring|1
+NodeJS|Language|1
+Object Oriented Programming|Pattern|1
+Open API|API|2
+Oracle|Database|3
+PaaS|Cloud|4
+PCI DSS|Standards|2
+PHP|Language|4
+pl/pgsql|Database|2
+Planning|Project Management|1
+PostgreSQL|Database|1
+Prototyping|Miscellaneous|5
+Python|Language|5
+Rails|API|2
+Rasbian|Operating System|5
+Ruby|Language|3
+Rundeck|Infrastructure Automation|3
+SaaS|Cloud|5
+Scrum|Methodology|1
+Scrum|Project Management|3
+Security Analysis|API|60
+Security Analysis|DevSecOps|1
+SQLite|Database|6
+SVN|Version Control|2
+Swagger|API|1
+Technical Strategy|Project Management|5
+Test Driven Development|Methodology|6
+Ubuntu|Operating System|1
+Waterfall|Methodology|2
+Windows|Operating System|5
+XML|Miscellaneous|4
+Deployments|DevSecOps|3
+Release Management|DevSecOps|4
+Java|Language|6
+Foundation|UI/UX|6

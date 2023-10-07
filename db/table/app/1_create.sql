@@ -1,5 +1,3 @@
-DROP TABLE IF EXISTS app;
-
 CREATE TABLE app (
   name         TEXT PRIMARY KEY,
   database     TEXT,

@@ -1,0 +1,1 @@
+Before setting up Nagios, Marketing IT used Hashicorps Consul for monitoring. Overall I have found Nagios to be a bit more flexible and suited for that purpose, and have also enjoyed and seen advantages to implementing my own monitoring systems as well.

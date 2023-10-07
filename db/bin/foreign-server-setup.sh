@@ -26,4 +26,3 @@ echo "CREATE USER MAPPING IF NOT EXISTS FOR zodiac
     user 'POSTGRES_USER',
     password 'POSTGRES_PASSWORD'
   );" > $fdw_dir/3_create_mapping.sql
-$psql_string < "$fdw_dir/3_create_mapping.sql"

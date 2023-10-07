@@ -1,0 +1,1 @@
+CVS Health Marketing IT sent all of our logs to graylog, so I would use it to diagnose various production issues (Graylog is an open source alternative to Splunk for those not familiar). Personally I like the convenience of having logs accessible directly on the server in addition to in the centralized logging hub, but I understand that may not be practical for all teams.
