@@ -3,10 +3,14 @@ import Container from 'react-bootstrap/Container';
 import React from 'react';
 
 import Apps from './Apps';
+import AppsMobile from './AppsMobile';
 import Education from './Education';
+import EducationMobile from './EducationMobile';
 import Skills from './Skills';
 import Projects from './Projects';
+import ProjectsMobile from './ProjectsMobile';
 import Titles from './Titles';
+import TitlesMobile from './TitlesMobile';
 
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -25,25 +29,25 @@ function Resume() {
             <Accordion.Item eventKey="1">
               <Accordion.Header>Titles</Accordion.Header>
               <Accordion.Body>
-                <Titles />
+                <TitlesMobile />
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey="2">
               <Accordion.Header>Apps</Accordion.Header>
               <Accordion.Body>
-                <Apps />
+                <AppsMobile />
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey="3">
               <Accordion.Header>Projects</Accordion.Header>
               <Accordion.Body>
-                <Projects />
+                <ProjectsMobile />
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey="4">
               <Accordion.Header>Education</Accordion.Header>
               <Accordion.Body>
-                <Education />
+                <EducationMobile />
               </Accordion.Body>
             </Accordion.Item>
           </Accordion>

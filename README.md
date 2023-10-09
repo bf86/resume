@@ -20,6 +20,7 @@ A self-demonstrating (partial) resume as API.
 - Google Cloud Firewall
 
 ## Releases
+- 2023-10-09 10:21 0.1.2 Mobile friendly layout
 - 2023-10-08 21:42 0.1.1 An actual front end sort of instead of API docs
 - 2023-09-29 11:59 0.0.11 SSL for pg, create .bash_profile, add ncdu to provision script
 - 2023-09-28 23:09 0.0.10 add basic monitoring scripts

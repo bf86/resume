@@ -26,25 +26,24 @@ function Apps() {
           <thead>
             <tr>
               <th>Name</th>
-              <th>Database</th>
-              <th>API</th>
-              <th>UI</th>
-              <th>Web Server</th>
-              <th>OS</th>
+              <th>Tech stach</th>
               <th>Role</th>
               <th>Description</th>
             </tr>
           </thead>
           <tbody>
             {apps.map((app) => {
+              app.techStack = `
+                ${app.database}
+                ${app.api}
+                ${app.frontend}
+                ${app.webserver}
+                ${app.os}
+              `;
               return (
                 <tr>
                   <td>{app.name}</td>
-                  <td>{app.database}</td>
-                  <td>{app.api}</td>
-                  <td>{app.frontend}</td>
-                  <td>{app.webserver}</td>
-                  <td>{app.os}</td>
+                  <td>{app.techStack}</td>
                   <td>{app.role}</td>
                   <td>{app.description}</td>
                 </tr>

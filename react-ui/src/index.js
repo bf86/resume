@@ -8,6 +8,7 @@ import Resume from './component/Resume';
 import Skills from './component/Skills';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './style/style.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
