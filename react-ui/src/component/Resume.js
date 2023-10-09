@@ -3,14 +3,10 @@ import Container from 'react-bootstrap/Container';
 import React from 'react';
 
 import Apps from './Apps';
-import AppsMobile from './AppsMobile';
 import Education from './Education';
-import EducationMobile from './EducationMobile';
 import Skills from './Skills';
 import Projects from './Projects';
-import ProjectsMobile from './ProjectsMobile';
 import Titles from './Titles';
-import TitlesMobile from './TitlesMobile';
 
 import 'bootstrap/dist/css/bootstrap.css';
 

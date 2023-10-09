@@ -22,28 +22,54 @@ function Education() {
   return (
     <div className="Education">
       <Container>
-        <Table>
-          <thead>
-            <tr>
-              <th>Institution</th>
-              <th>Degree</th>
-              <th>Field</th>
-              <th>Honors</th>
-            </tr>
-          </thead>
-          <tbody>
-            {education.map((education) => {
-              return (
-                <tr>
-                  <td>{education.institution}</td>
-                  <td>{education.degree}</td>
-                  <td>{education.field}</td>
-                  <td>{education.honors}</td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </Table>
+        {education.map((education) => {
+          if (education.degree === 'N/A') {
+            education.degree = '';
+          }
+          if (education.honors === 'N/A') {
+            education.honors = '';
+          }
+          function EducationTable() {
+            if (education.degree && education.honors) {
+              return EducationTableFull(education);
+            }
+            return EducationTableBrief(education);
+          }
+
+          function EducationTableFull() {
+            return (
+              <tbody>
+                <tr><th><h4>{education.institution}</h4></th></tr>
+                <tr><td>{education.degree}</td></tr>
+                <tr><th>Honors</th><td>{education.honors}</td></tr>
+              </tbody>
+            )
+          }
+
+          function EducationTableBrief() {
+            return (
+              <tbody>
+                <tr><th><h4>{education.institution}</h4></th></tr>
+              </tbody>
+            )
+          }
+
+          return (
+            <>
+              <Table>
+                <tbody>
+                  <tr><th><h4>{education.institution}</h4></th></tr>
+                  <tr><td>{education.degree}</td></tr>
+                  <tr><td>{education.honors}</td></tr>
+                </tbody>
+              </Table>
+              <Table>
+                <tbody>
+                </tbody>
+              </Table>
+            </>
+          )
+        })}
       </Container>
     </div>
   );
