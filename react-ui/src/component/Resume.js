@@ -25,25 +25,25 @@ function Resume() {
             <Accordion.Item eventKey="1">
               <Accordion.Header>Titles</Accordion.Header>
               <Accordion.Body>
-                <TitlesMobile />
+                <Titles />
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey="2">
               <Accordion.Header>Apps</Accordion.Header>
               <Accordion.Body>
-                <AppsMobile />
+                <Apps />
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey="3">
               <Accordion.Header>Projects</Accordion.Header>
               <Accordion.Body>
-                <ProjectsMobile />
+                <Projects />
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey="4">
               <Accordion.Header>Education</Accordion.Header>
               <Accordion.Body>
-                <EducationMobile />
+                <Education />
               </Accordion.Body>
             </Accordion.Item>
           </Accordion>

@@ -1,25 +1,24 @@
 # [Brian86.dev](https://brian86.dev)
-A self-demonstrating (partial) resume as API.
 
 ## Endpoints
 - [/api/pg/apps](https://brian86.dev/api/pg/apps)
 - [/api/pg/projects](https://brian86.dev/api/pg/projects)
 - [/api/pg/skills](https://brian86.dev/api/pg/skills)
-- [/api/pg/skill-types](https://brian86.dev/api/pg/skill-types)
 - [/api/pg/titles](https://brian86.dev/api/pg/titles)
 - [/api/pg/education](https://brian86.dev/api/pg/education)
 
 ## Tech Stack
 - Google Virtual Private Cloud
-- Extremely lightweight E2 Micro Ubuntu VM
+- E2 Micro Ubuntu VM
 - Docker
   - PostgreSQL Database
   - NodeJS (Fastify) API
-  - React Front-End (Under Construction)
+  - React UI
   - Nginx Reverse Proxy + SSL
 - Google Cloud Firewall
 
 ## Releases
+- 2023-10-09 11:07 0.1.3 Improve skills view
 - 2023-10-09 10:21 0.1.2 Mobile friendly layout
 - 2023-10-08 21:42 0.1.1 An actual front end sort of instead of API docs
 - 2023-09-29 11:59 0.0.11 SSL for pg, create .bash_profile, add ncdu to provision script

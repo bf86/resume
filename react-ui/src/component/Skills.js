@@ -10,32 +10,25 @@ import apiUrl from '../helper/apiUrl';
 function Skills() {
   const [skills, setSkills] = useState([]);
   useEffect(() => {
-     fetch(apiUrl + '/api/pg/skills')
-        .then((response) => response.json())
-        .then((data) => {
-          setSkills(data);
-        })
-        .catch((err) => {
-        });
+    fetch(apiUrl + '/api/pg/skills')
+      .then((response) => response.json())
+      .then((data) => {
+        setSkills(data);
+      })
+      .catch((err) => {
+      });
   }, []);
 
   return (
     <div className="Skills">
       <Container>
-          <Accordion>
-            {skills.map((skill, index) => {
-              return (
-                <Accordion.Item eventKey={index}>
-                  <Accordion.Header>{skill.name}</Accordion.Header>
-                  <Accordion.Body>
-                    {skill.skills.map((subSubskill, index) => {
-                      return <p>{subSubskill.name}</p>
-                    })}
-                  </Accordion.Body>
-                </Accordion.Item>
-              )
-            })}
-          </Accordion>
+        {skills.map((skill, index) => {
+          let subskills = skill.skills.map((subskill => subskill.name));
+          return ( <>
+            <h3>{skill.name}</h3>
+            <p>{subskills.join(', ')}</p>
+          </>)
+        })}
       </Container>
     </div>
   );
