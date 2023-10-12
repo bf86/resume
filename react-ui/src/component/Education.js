@@ -29,31 +29,6 @@ function Education() {
           if (education.honors === 'N/A') {
             education.honors = '';
           }
-          function EducationTable() {
-            if (education.degree && education.honors) {
-              return EducationTableFull(education);
-            }
-            return EducationTableBrief(education);
-          }
-
-          function EducationTableFull() {
-            return (
-              <tbody>
-                <tr><th><h4>{education.institution}</h4></th></tr>
-                <tr><td>{education.degree}</td></tr>
-                <tr><th>Honors</th><td>{education.honors}</td></tr>
-              </tbody>
-            )
-          }
-
-          function EducationTableBrief() {
-            return (
-              <tbody>
-                <tr><th><h4>{education.institution}</h4></th></tr>
-              </tbody>
-            )
-          }
-
           return (
             <>
               <Table>
@@ -61,10 +36,6 @@ function Education() {
                   <tr><th><h4>{education.institution}</h4></th></tr>
                   <tr><td>{education.degree}</td></tr>
                   <tr><td>{education.honors}</td></tr>
-                </tbody>
-              </Table>
-              <Table>
-                <tbody>
                 </tbody>
               </Table>
             </>

@@ -5,7 +5,6 @@
 - New endpoints
   - /hobbies
   - /releases
-  - /education
   - /opinions?
   - POST /interview
 - Filter query params
@@ -14,6 +13,6 @@
   - MySQL (/api/mys/skills)
   - GraphQL
   - AWS
-- World's smallest Kafka instance lol
-- fail2ban instead of funny custom solution
+  - World's smallest Kafka instance lol
+  - fail2ban instead of funny custom solution
 - React reportWebVitals

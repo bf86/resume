@@ -18,6 +18,7 @@
 - Google Cloud Firewall
 
 ## Releases
+- 2023-10-11 21:03 0.1.4 Fix prouction layout
 - 2023-10-09 11:07 0.1.3 Improve skills view
 - 2023-10-09 10:21 0.1.2 Mobile friendly layout
 - 2023-10-08 21:42 0.1.1 An actual front end sort of instead of API docs

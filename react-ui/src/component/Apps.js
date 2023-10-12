@@ -22,31 +22,25 @@ function Apps() {
   return (
     <div className="Apps">
       <Container>
-        {apps.map((app) => {
-          app.techStack = `
-            ${app.database || ''}
-            ${app.api || ''}
-            ${app.frontend || ''}
-            ${app.webserver || ''}
-            ${app.os || ''}
-          `;
-          return (
-            <>
-              <Table>
-                <tbody>
-                  <tr><th><h3>{app.name}</h3></th></tr>
-                  <tr><th>Role</th><td>{app.role}</td></tr>
-                  <tr><th>Tech Stack</th><td>{app.techStack}</td></tr>
-                </tbody>
-              </Table>
-              <Table>
-                <tbody>
-                  <tr><td>{app.description}</td></tr>
-                </tbody>
-              </Table>
-            </>
-          )
-        })}
+        <Table>
+          <tbody>
+            {apps.map((app) => {
+              app.techStack = `
+                ${app.database || ''}
+                ${app.api || ''}
+                ${app.frontend || ''}
+                ${app.webserver || ''}
+                ${app.os || ''}
+              `;
+              return ( <>
+                <tr><th><h3>{app.name}</h3></th></tr>
+                <tr><th>Role</th><td>{app.role}</td></tr>
+                <tr><th>Tech Stack</th><td>{app.techStack}</td></tr>
+                <tr><th>Description</th><td>{app.description}</td></tr>
+                </> )
+            })}
+          </tbody>
+        </Table>
       </Container>
     </div>
   );

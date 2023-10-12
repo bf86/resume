@@ -22,24 +22,18 @@ function Projects() {
   return (
     <div className="Projects">
       <Container>
-        {projects.map((project) => {
-          return (
-            <>
-              <Table>
-                <tbody>
-                  <tr><th><h4>{project.name}</h4></th></tr>
-                  <tr><th>Role</th><td>{project.role}</td></tr>
-                  <tr><th>Organization</th><td>{project.organization}</td></tr>
-                </tbody>
-              </Table>
-              <Table>
-                <tbody>
-                  <tr><td>{project.description}</td></tr>
-                </tbody>
-              </Table>
-            </>
-          )
-        })}
+        <Table>
+          <tbody>
+            {projects.map((project) => {
+              return ( <>
+                <tr><th><h4>{project.name}</h4></th></tr>
+                <tr><th>Role</th><td>{project.role}</td></tr>
+                <tr><th>Organization</th><td>{project.organization}</td></tr>
+                <tr><th>Description</th><td>{project.description}</td></tr>
+              </> )
+            })}
+          </tbody>
+        </Table>
       </Container>
     </div>
   );
