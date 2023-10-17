@@ -29,13 +29,16 @@ function Education() {
           if (education.honors === 'N/A') {
             education.honors = '';
           }
+          education.detail = `${education.degree || education.field}`;
+          if (education.honors) {
+            education.detail += ` - ${education.honors}`;
+          }
           return (
             <>
               <Table>
                 <tbody>
                   <tr><th><h4>{education.institution}</h4></th></tr>
-                  <tr><td>{education.degree}</td></tr>
-                  <tr><td>{education.honors}</td></tr>
+                  <tr><td>{education.detail}</td></tr>
                 </tbody>
               </Table>
             </>
