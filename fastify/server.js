@@ -107,6 +107,12 @@ fastify.get('/api/pg/education/:institution', async function handler(request, re
   corsReply(reply).send(res);
 });
 
+fastify.get('/api/pg/recommendations', async function handler(request, reply) {
+  let recommendation = require(`${models}/recommendation`);
+  let res = await recommendation.list();
+  corsReply(reply).send(res);
+});
+
 /*
   Server
 */

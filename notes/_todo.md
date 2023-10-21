@@ -6,6 +6,7 @@
   - /hobbies
   - /releases
   - /opinions?
+  - recommendation
   - POST /interview
 - Filter query params
 - CLI? XD

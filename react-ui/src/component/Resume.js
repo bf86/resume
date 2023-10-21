@@ -4,8 +4,9 @@ import React from 'react';
 
 import Apps from './Apps';
 import Education from './Education';
-import Skills from './Skills';
 import Projects from './Projects';
+import Recommendations from './Recommendations';
+import Skills from './Skills';
 import Titles from './Titles';
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -44,6 +45,12 @@ function Resume() {
               <Accordion.Header>Education</Accordion.Header>
               <Accordion.Body>
                 <Education />
+              </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item eventKey="5">
+              <Accordion.Header>Recommendations</Accordion.Header>
+              <Accordion.Body>
+                <Recommendations />
               </Accordion.Body>
             </Accordion.Item>
           </Accordion>
