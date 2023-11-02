@@ -37,7 +37,7 @@ function Apps() {
                 <tr><th>Role</th><td>{app.role}</td></tr>
                 <tr><th>Tech Stack</th><td>{app.techStack}</td></tr>
                 <tr><th>Description</th><td>{app.description}</td></tr>
-                </> )
+              </> )
             })}
           </tbody>
         </Table>
