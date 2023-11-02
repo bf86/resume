@@ -12,6 +12,7 @@ services:
       service: pg_default
     container_name: api
     build: ../fastify
+    restart: always
     links:
       - db
     volumes:
@@ -21,6 +22,7 @@ services:
       service: pg_default
     container_name: db
     build: ../db
+    restart: always
     ports:
       - 5432:5432
     volumes:
@@ -29,6 +31,7 @@ services:
   nginx:
     container_name: nginx
     image: nginx:latest
+    restart: always
     links:
       - api
     ports:
@@ -42,6 +45,7 @@ services:
       service: pg_default
     container_name: monitor
     build: ../monitor
+    restart: always
     environment:
       - RESUME_PROJECT_ID=${RESUME_PROJECT_ID}
       - NGINX_LOG_PATH=/var/log/nginx
