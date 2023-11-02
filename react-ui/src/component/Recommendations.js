@@ -26,7 +26,7 @@ function Recommendations() {
           <tbody>
             {recommendations.map((recommendation) => {
               return ( <>
-                <tr><th><h4>{recommendation.source}</h4></th><th></th></tr>
+                <tr><th><h4>{recommendation.source}</h4></th></tr>
                 <tr><th>Title</th><td>{recommendation.title}</td></tr>
                 <tr><th>See At</th><td>{recommendation.url}</td></tr>
                 <tr><th>Transcript</th><td>"{recommendation.transcript}"</td></tr>
