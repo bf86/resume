@@ -23,6 +23,11 @@ PROJECT_KEYS = [
   'organization'
 ]
 
+SKILL_BY_TYPE_KEYS = [
+  'name',
+  'skills'
+]
+
 SKILL_KEYS = [
   'type',
   'name',
@@ -109,9 +114,9 @@ describe 'API' do
     show_404_response_test(uri, APP_KEYS)
   end
 
-  it 'Returns a list of skills' do
+  it 'Returns a list of skills grouped by type' do
     uri = URI("#{API_URI}/skills")
-    list_response_test(uri, SKILL_KEYS)
+    list_response_test(uri, SKILL_BY_TYPE_KEYS)
   end
 
   it 'Returns a single skill' do
