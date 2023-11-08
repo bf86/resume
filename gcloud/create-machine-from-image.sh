@@ -1,0 +1,18 @@
+gcloud compute instances create $1 \
+  --project=$RESUME_PROJECT_ID \
+  --zone=$RESUME_INSTANCE_ZONE \
+  --machine-type=$RESUME_MACHINE_TYPE \
+  --network-interface=network-tier=PREMIUM,stack-type=IPV4_ONLY,subnet=default \
+  --metadata=^,@^enable-osconfig=TRUE,@ssh-keys=$RESUME_SSH_KEYS \
+  --maintenance-policy=MIGRATE \
+  --provisioning-model=STANDARD \
+  --service-account=$RESUME_SERVICE_ACCOUNT \
+  --scopes=https://www.googleapis.com/auth/devstorage.read_only,https://www.googleapis.com/auth/logging.write,https://www.googleapis.com/auth/monitoring.write,https://www.googleapis.com/auth/servicecontrol,https://www.googleapis.com/auth/service.management.readonly,https://www.googleapis.com/auth/trace.append \
+  --min-cpu-platform=Automatic \
+  --tags=http-server,https-server \
+  --no-shielded-secure-boot \
+  --shielded-vtpm \
+  --shielded-integrity-monitoring \
+  --labels=goog-ops-agent-policy=v2-x86-template-1-1-0,goog-ec-src=vm_add-gcloud \
+  --reservation-affinity=any \
+  --source-machine-image=$RESUME_MACHINE_IMAGE
