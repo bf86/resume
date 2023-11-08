@@ -113,6 +113,12 @@ fastify.get('/api/pg/recommendations', async function handler(request, reply) {
   corsReply(reply).send(res);
 });
 
+fastify.get('/api/pg/faq', async function handler(request, reply) {
+  let faq = require(`${models}/faq`);
+  let res = await faq.list();
+  corsReply(reply).send(res);
+});
+
 /*
   Server
 */

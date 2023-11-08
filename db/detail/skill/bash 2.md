@@ -1,1 +1,0 @@
-I used bash at CVS primarily for deploy and build scripts, and if you check out the code for this resume you will see I employed some here as well. I'd like to continue to expand by Bash skills, and I'm interested in implementing idempotent Bash scripts as an alternative to Ansible Tower in some cases.

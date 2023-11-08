@@ -4,7 +4,9 @@
 declare -a tables=(
   "app"
   "education"
+  "faq"
   "project"
+  "recommendation"
   "skill_type"
   "skill"
   "title"

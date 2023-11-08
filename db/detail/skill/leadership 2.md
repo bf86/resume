@@ -1,1 +1,0 @@
-I was frequently described by my manager as both a technical and cultural leader on my team. I championed clean, reliable, maintainable code, stable deployment processes, precise monitoring systems, respectful disagreement, and work life balance.

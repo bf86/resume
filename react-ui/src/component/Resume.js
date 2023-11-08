@@ -4,6 +4,7 @@ import React from 'react';
 
 import Apps from './Apps';
 import Education from './Education';
+import Faq from './Faq';
 import Projects from './Projects';
 import Recommendations from './Recommendations';
 import Skills from './Skills';
@@ -51,6 +52,12 @@ function Resume() {
               <Accordion.Header>Recommendations</Accordion.Header>
               <Accordion.Body>
                 <Recommendations />
+              </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item eventKey="6">
+              <Accordion.Header>FAQ</Accordion.Header>
+              <Accordion.Body>
+                <Faq />
               </Accordion.Body>
             </Accordion.Item>
           </Accordion>

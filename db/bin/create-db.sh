@@ -4,8 +4,10 @@
 declare -a tables=(
   "app"
   "education"
+  "faq"
   "ip"
   "project"
+  "recommendation"
   "skill_type"
   "skill"
   "title"
