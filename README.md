@@ -49,10 +49,10 @@
 - Filter query params
 - CLI? XD
 - Re-implement with different tech stacks
-  - MySQL (/api/mys/skills)
+  - MySQL (e.g. /api/mys/skills)
   - GraphQL
   - AWS
-- World's smallest Kafka instance lol
+- World's smallest Kafka instance
 
 ## Contact
 - brian.g.fink@gmail.com
