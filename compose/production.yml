@@ -28,6 +28,10 @@ services:
     extends:
       file: base.yml
       service: monitor
+  cache:
+    extends:
+      file: base.yml
+      service: cache
 volumes:
   db:
     driver: local

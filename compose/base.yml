@@ -15,6 +15,7 @@ services:
     restart: always
     links:
       - db
+      - cache
     volumes:
       - ../fastify:/usr/src/app
   db:
@@ -57,6 +58,10 @@ services:
       - ../log/access.log:/var/log/nginx/access.log
       - ../monitor:/monitor
     command: tail -f /etc/issue # Arbitrary command to keep container running
+  cache:
+    image: redis
+    container_name: cache
+    restart: always
 volumes:
   db:
     driver: local

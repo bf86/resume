@@ -12,6 +12,12 @@ const corsReply = require(`${__dirname}/helpers/corsReply`);
 const models = `${__dirname}/models`;
 
 /*
+  Add-on
+*/
+
+fastify.register(require('@fastify/redis'), { url: 'redis://cache' });
+
+/*
   Endpoints
 */
 
@@ -24,8 +30,14 @@ function check404(res, id) {
 }
 
 fastify.get('/api/pg/apps', async function handler(request, reply) {
-  let App = require(`${models}/app`);
-  let res = await App.list();
+  let { redis } = fastify;
+  let redisRes = await redis.get('apps');
+  if (!redisRes) {
+    let App = require(`${models}/app`);
+    var dbRes = await App.list();
+    await redis.set('apps', JSON.stringify(dbRes));
+  }
+  let res = redisRes || dbRes;
   corsReply(reply).send(res);
 });
 
@@ -52,8 +64,14 @@ fastify.get('/api/pg/projects/:name', async function handler(request, reply) {
 });
 
 fastify.get('/api/pg/skills', async function handler(request, reply) {
-  let Skill = require(`${models}/skill`);
-  let res = await Skill.listByType();
+  let { redis } = fastify;
+  let redisRes = await redis.get('skills');
+  if (!redisRes) {
+    let Skill = require(`${models}/skill`);
+    var dbRes = await Skill.listByType();
+    await redis.set('skills', JSON.stringify(dbRes));
+  }
+  let res = redisRes || dbRes;
   corsReply(reply).send(res);
 });
 

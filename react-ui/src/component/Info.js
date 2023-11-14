@@ -14,10 +14,11 @@ function Releases() {
               <p>This API built with:</p>
               <ul>
                 <li>Google Virtual Private Cloud</li>
-                <li>Extremely lightweight E2 Micro Ubuntu VM</li>
+                <li>E2 Micro Ubuntu VM</li>
                 <li>Docker</li>
                 <ul>
                   <li>PostgreSQL Database</li>
+                  <li>Redis Cache</li>
                   <li>NodeJS (Fastify) API</li>
                   <li>React Front-End</li>
                   <li>Nginx Reverse Proxy + SSL</li>
@@ -34,6 +35,7 @@ function Releases() {
             <Accordion.Header>Releases</Accordion.Header>
             <Accordion.Body>
             <ul style={{"font-family": "monospace"}}>
+              <li>2023-11-21 16:06 0.1.9 Add Redis cache</li>
               <li>2023-11-14 09:40 0.1.8 Add basic loading states</li>
               <li>2023-11-11 19:50 0.1.7 Add FAQ, minor README changes</li>
               <li>2023-11-02 08:02 0.1.6 Fix endpoint tests and recommendations mobile layout</li>
