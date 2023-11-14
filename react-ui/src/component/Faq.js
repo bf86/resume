@@ -22,6 +22,7 @@ function Faq() {
   return (
     <div className="Faq">
       <Container>
+        {faq.length === 0 && <p> Loading... </p>}
         <Table>
           <tbody>
             {faq.map((question) => {

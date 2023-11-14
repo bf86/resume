@@ -22,6 +22,7 @@ function Titles() {
   return (
     <div className="Titles">
       <Container>
+        {titles.length === 0 && <p> Loading... </p>}
         <Table>
           <tbody>
             {titles.map((title) => {

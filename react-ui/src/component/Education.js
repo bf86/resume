@@ -22,6 +22,7 @@ function Education() {
   return (
     <div className="Education">
       <Container>
+        {education.length === 0 && <p> Loading... </p>}
         {education.map((education) => {
           if (education.degree === 'N/A') {
             education.degree = '';

@@ -22,6 +22,7 @@ function Skills() {
   return (
     <div className="Skills">
       <Container>
+        {skills.length === 0 && <p> Loading... </p>}
         {skills.map((skill, index) => {
           let subskills = skill.skills.map((subskill => subskill.name));
           return ( <>

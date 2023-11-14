@@ -22,6 +22,7 @@ function Recommendations() {
   return (
     <div className="Recommendations">
       <Container>
+        {recommendations.length === 0 && <p> Loading... </p>}
         <Table>
           <tbody>
             {recommendations.map((recommendation) => {

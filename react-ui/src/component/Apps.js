@@ -9,6 +9,7 @@ import apiUrl from '../helper/apiUrl';
 
 function Apps() {
   const [apps, setApps] = useState([]);
+
   useEffect(() => {
      fetch(apiUrl + '/api/pg/apps')
         .then((response) => response.json())
@@ -22,6 +23,7 @@ function Apps() {
   return (
     <div className="Apps">
       <Container>
+        {apps.length === 0 && <p> Loading... </p>}
         <Table>
           <tbody>
             {apps.map((app) => {

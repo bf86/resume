@@ -22,6 +22,7 @@ function Projects() {
   return (
     <div className="Projects">
       <Container>
+        {projects.length === 0 && <p> Loading... </p>}
         <Table>
           <tbody>
             {projects.map((project) => {
