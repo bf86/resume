@@ -6,7 +6,3 @@ CREATE TABLE skill (
   featured      BOOLEAN,
   PRIMARY KEY (name, type)
 );
-
--- ALTER TABLE skill ADD COLUMN detail TEXT;
--- ALTER TABLE skill ADD COLUMN rank_in_type BOOLEAN;
--- ALTER TABLE skill ADD COLUMN featured BOOLEAN;

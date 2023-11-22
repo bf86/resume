@@ -22,6 +22,7 @@ services:
       service: nginx
     volumes:
       - ../config/nginx-production.conf:/etc/nginx/nginx.conf
+      - ../build:/www/data/html
       - ../ssl/fullchain.pem:/ssl/cert.pem
       - ../ssl/privkey.pem:/ssl/key.pem
   monitor:

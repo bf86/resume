@@ -1,10 +1,14 @@
 version: "3.8"
 services:
   pg_default:
+    # These vars are set in ./.env e.g:
+    # RESUME_DB_HOST=dbhost.com
+    # RESUME_DB_PORT=12345
+    # The env file can be overridden by shell env vars
     environment:
-      - POSTGRES_HOST=db
+      - POSTGRES_HOST=${RESUME_DB_HOST}
       - POSTGRES_PORT=${RESUME_DB_PORT}
-      - POSTGRES_DB=${RESUME_DB}
+      - POSTGRES_DB_NAME=${RESUME_DB_NAME}
       - POSTGRES_USER=${RESUME_DB_USER}
       - POSTGRES_PASSWORD=${RESUME_DB_PASSWORD}
   api:
@@ -25,7 +29,7 @@ services:
     build: ../db
     restart: always
     ports:
-      - 5432:5432
+      - ${RESUME_DB_PORT}:${RESUME_DB_PORT}
     volumes:
       - db:/var/lib/postgresql/data
       - ../db:/usr/src/app
@@ -39,7 +43,6 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - ../react-ui/build:/www/data/html
       - ../log/access.log:/var/log/nginx/access.log
   monitor:
     extends:
@@ -48,7 +51,7 @@ services:
     build: ../monitor
     restart: always
     environment:
-      - RESUME_PROJECT_ID=${RESUME_PROJECT_ID}
+      - RESUME_GCLOUD_PROJECT_ID=${RESUME_GCLOUD_PROJECT_ID}
       - NGINX_LOG_PATH=/var/log/nginx
     links:
       - api

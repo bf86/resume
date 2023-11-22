@@ -2,7 +2,7 @@ DROP FOREIGN TABLE IF EXISTS app_production;
 
 CREATE FOREIGN TABLE app_production (
   name         TEXT,
-  database     TEXT,
+  db           TEXT,
   api          TEXT,
   frontend     TEXT,
   webserver    TEXT,

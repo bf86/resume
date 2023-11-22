@@ -13,13 +13,13 @@ def block_hackers()
     all_ips_to_block = hacker_ips.concat(blocked_hacker_ips).uniq()
     ranges_to_block = all_ips_to_block.map { |ip| "#{ip}/32" }
     reject_string = ranges_to_block.sort().join(',')
-    block_command = "gcloud compute --project=#{ENV['RESUME_PROJECT_ID']} "
+    block_command = "gcloud compute --project=#{ENV['RESUME_GCLOUD_PROJECT_ID']} "
     block_command += 'firewall-rules update no-hackers '
     block_command += "--source-ranges=#{reject_string}"
     puts block_command
     result = `#{block_command}`
     print result
-    describe_command = "gcloud compute --project=#{ENV['RESUME_PROJECT_ID']} "
+    describe_command = "gcloud compute --project=#{ENV['RESUME_GCLOUD_PROJECT_ID']} "
     describe_command += 'firewall-rules describe no-hackers'
     puts describe_command
     result = `#{describe_command}`

@@ -3,7 +3,7 @@
 # Vars
 dir="$(dirname "$0")"
 fdw_dir="$dir/../fdw"
-psql_string="psql -h localhost -d $POSTGRES_DB -U $POSTGRES_USER"
+psql_string="psql -h localhost -d $POSTGRES_DB_NAME -U $POSTGRES_USER"
 
 
 # Foreign server setup

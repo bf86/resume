@@ -14,6 +14,7 @@ services:
       service: nginx
     volumes:
       - ../config/nginx-localdev.conf:/etc/nginx/nginx.conf
+      - ../react-ui/build:/www/data/html
   monitor:
     extends:
       file: base.yml

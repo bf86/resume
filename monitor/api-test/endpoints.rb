@@ -7,7 +7,7 @@ API_URI = 'http://api:/api/pg'
 
 APP_KEYS = [
   'name',
-  'database',
+  'db',
   'api',
   'frontend',
   'webserver',
@@ -64,7 +64,16 @@ def list_response_test(uri, keys)
   body = res.body
   data = JSON.parse(body)
   all_match = data.all? do |hash|
-    hash.keys.sort() == keys.sort()
+    if hash.keys.sort() != keys.sort() then
+      puts ''
+      puts 'response keys:'
+      puts hash.keys.sort()
+      puts ''
+      puts 'expected keys:'
+      puts keys.sort()
+    else
+      true
+    end
   end
   expect(all_match).to eq(true)
 end

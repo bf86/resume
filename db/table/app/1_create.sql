@@ -1,6 +1,6 @@
 CREATE TABLE app (
   name         TEXT PRIMARY KEY,
-  database     TEXT,
+  db           TEXT,
   api          TEXT,
   frontend     TEXT,
   webserver    TEXT,

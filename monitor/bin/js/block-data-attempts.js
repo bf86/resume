@@ -14,7 +14,7 @@ async function blockDataAttempts() {
   let dataAttemptIps = mapBy(result.rows, 'ip');
   let dataAttemptRanges = dataAttemptIps.map(ip => `${ip}/32`);
   let rejectString = dataAttemptIps.sort().join(',');
-  let blockCommand = `gcloud compute --project=${process.env.RESUME_PROJECT_ID} `;
+  let blockCommand = `gcloud compute --project=${process.env.RESUME_GCLOUD_PROJECT_ID} `;
       blockCommand += 'firewall-rules update no-hackers ';
       blockCommand += `--source-ranges=${rejectString}`;
   await shell(blockCommand);

@@ -35,6 +35,7 @@ function Releases() {
             <Accordion.Header>Releases</Accordion.Header>
             <Accordion.Body>
             <ul style={{"font-family": "monospace"}}>
+              <li>2023-11-24 22:22 0.2.0 Dev workflow and code improvements</li>
               <li>2023-11-21 16:06 0.1.9 Add Redis cache</li>
               <li>2023-11-14 09:40 0.1.8 Add basic loading states</li>
               <li>2023-11-11 19:50 0.1.7 Add FAQ, minor README changes</li>

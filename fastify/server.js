@@ -12,6 +12,18 @@ const corsReply = require(`${__dirname}/helpers/corsReply`);
 const models = `${__dirname}/models`;
 
 /*
+  Models
+*/
+
+const App = require(`${models}/app`);
+const Education = require(`${models}/education`);
+const Project = require(`${models}/project`);
+const Recommendation = require(`${models}/recommendation`);
+const Skill = require(`${models}/skill`);
+const SkillType = require(`${models}/skillType`);
+const Title = require(`${models}/title`);
+
+/*
   Add-on
 */
 
@@ -33,7 +45,6 @@ fastify.get('/api/pg/apps', async function handler(request, reply) {
   let { redis } = fastify;
   let redisRes = await redis.get('apps');
   if (!redisRes) {
-    let App = require(`${models}/app`);
     var dbRes = await App.list();
     await redis.set('apps', JSON.stringify(dbRes));
   }
@@ -43,21 +54,18 @@ fastify.get('/api/pg/apps', async function handler(request, reply) {
 
 fastify.get('/api/pg/apps/:name', async function handler(request, reply) {
   let { name } = request.params;
-  let App = require(`${models}/app`);
   let res = await App.show(name);
   res = check404(res, name);
   corsReply(reply).send(res);
 });
 
 fastify.get('/api/pg/projects', async function handler(request, reply) {
-  let Project = require(`${models}/project`);
   let res = await Project.list();
   corsReply(reply).send(res);
 });
 
 fastify.get('/api/pg/projects/:name', async function handler(request, reply) {
   let { name } = request.params;
-  let Project = require(`${models}/project`);
   let res = await Project.show(name);
   res = check404(res, name);
   corsReply(reply).send(res);
@@ -67,7 +75,6 @@ fastify.get('/api/pg/skills', async function handler(request, reply) {
   let { redis } = fastify;
   let redisRes = await redis.get('skills');
   if (!redisRes) {
-    let Skill = require(`${models}/skill`);
     var dbRes = await Skill.listByType();
     await redis.set('skills', JSON.stringify(dbRes));
   }
@@ -77,57 +84,49 @@ fastify.get('/api/pg/skills', async function handler(request, reply) {
 
 fastify.get('/api/pg/skills/:name', async function handler(request, reply) {
   let { name } = request.params;
-  let Skill = require(`${models}/skill`);
   let res = await Skill.show(name);
   res = check404(res, name);
   corsReply(reply).send(res);
 });
 
 fastify.get('/api/pg/skill-types', async function handler(request, reply) {
-  let SkillType = require(`${models}/skillType`);
   let res = await SkillType.list();
   corsReply(reply).send(res);
 });
 
 fastify.get('/api/pg/skill-types/:name', async function handler(request, reply) {
   let { name } = request.params;
-  let SkillType = require(`${models}/skillType`);
   let res = await SkillType.show(name);
   res = check404(res, name);
   corsReply(reply).send(res);
 });
 
 fastify.get('/api/pg/titles', async function handler(request, reply) {
-  let Title = require(`${models}/title`);
   let res = await Title.list();
   corsReply(reply).send(res);
 });
 
 fastify.get('/api/pg/titles/:id', async function handler(request, reply) {
   let { id } = request.params;
-  let Title = require(`${models}/title`);
   let res = await Title.show(id);
   res = check404(res, id);
   corsReply(reply).send(res);
 });
 
 fastify.get('/api/pg/education', async function handler(request, reply) {
-  let Education = require(`${models}/education`);
   let res = await Education.list();
   corsReply(reply).send(res);
 });
 
 fastify.get('/api/pg/education/:institution', async function handler(request, reply) {
   let { institution } = request.params;
-  let Education = require(`${models}/education`);
   let res = await Education.show(institution);
   res = check404(res, institution);
   corsReply(reply).send(res);
 });
 
 fastify.get('/api/pg/recommendations', async function handler(request, reply) {
-  let recommendation = require(`${models}/recommendation`);
-  let res = await recommendation.list();
+  let res = await Recommendation.list();
   corsReply(reply).send(res);
 });
 

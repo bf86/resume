@@ -13,13 +13,13 @@ declare -a tables=(
   "title"
 )
 dir="$(dirname "$0")"
-psql_string="psql -h localhost -d $POSTGRES_DB -U $POSTGRES_USER"
+psql_string="psql -h localhost -d $POSTGRES_DB_NAME -U $POSTGRES_USER"
 
 # Drop
 for table in "${tables[@]}"
 do
   echo "Dropping table $table:"
-  $psql_string -c "DROP TABLE IF EXISTS $table"
+  $psql_string -c "DROP TABLE IF EXISTS $table CASCADE"
 done
 
 # Create
@@ -29,5 +29,7 @@ do
   if [ -f $create_path ]; then
     echo "Creating table $table:"
     $psql_string < $create_path
+  else
+    echo "Create file does not exist: $create_path"
   fi
 done

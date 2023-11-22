@@ -11,13 +11,13 @@ function Apps() {
   const [apps, setApps] = useState([]);
 
   useEffect(() => {
-     fetch(apiUrl + '/api/pg/apps')
-        .then((response) => response.json())
-        .then((data) => {
-          setApps(data);
-        })
-        .catch((err) => {
-        });
+    fetch(apiUrl + '/api/pg/apps')
+      .then((response) => response.json())
+      .then((data) => {
+        setApps(data);
+      })
+      .catch((err) => {
+      });
   }, []);
 
   return (
@@ -28,11 +28,11 @@ function Apps() {
           <tbody>
             {apps.map((app) => {
               app.techStack = `
-                ${app.database || ''}
-                ${app.api || ''}
-                ${app.frontend || ''}
-                ${app.webserver || ''}
-                ${app.os || ''}
+                ${app.db && app.db !== 'null' ? app.db + ',' : ''}
+                ${app.api && app.api !== 'null' ? app.api + ',' : ''}
+                ${app.frontend && app.frontend !== 'null' ? app.frontend + ',' : ''}
+                ${app.webserver && app.webserver !== 'null' ? app.webserver + ',' : ''}
+                ${app.os && app.os !== 'null' ? app.os : ''}
               `;
               return ( <>
                 <tr><th><h3>{app.name}</h3></th></tr>

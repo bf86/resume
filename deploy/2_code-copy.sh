@@ -1,17 +1,48 @@
 #!/bin/bash
 
-# copies code to relevant host
+set -e
 
-dir="$(dirname "$0")"
+#
+# Copies code to specified host
+#
+
+# Options
+## Deploy dirs
+declare -a deploy_dirs=(
+  "../compose"
+  "../cron"
+  "../config"
+  "../db"
+  "../fastify"
+  "../monitor"
+  "../provision"
+  "../react-ui/build"
+  "../ssl"
+)
+
+## App path
 app_path="/home/$RESUME_USER/resume"
 
-ssh $RESUME_USER@$RESUME_HOST "mkdir -p $app_path"
-scp -r "$dir/../compose" "$RESUME_USER@$RESUME_HOST:$app_path"
-scp -r "$dir/../cron" "$RESUME_USER@$RESUME_HOST:$app_path"
-scp -r "$dir/../config" "$RESUME_USER@$RESUME_HOST:$app_path"
-scp -r "$dir/../db" "$RESUME_USER@$RESUME_HOST:$app_path"
-scp -r "$dir/../fastify" "$RESUME_USER@$RESUME_HOST:$app_path"
-scp -r "$dir/../monitor" "$RESUME_USER@$RESUME_HOST:$app_path"
-scp -r "$dir/../provision" "$RESUME_USER@$RESUME_HOST:$app_path"
-scp -r "$dir/../react-ui/build" "$RESUME_USER@$RESUME_HOST:$app_path/react-ui"
-scp -r "$dir/../ssl" "$RESUME_USER@$RESUME_HOST:$app_path"
+## Deploy host
+deploy_host=""
+if [ "$1" = "prd" ]; then
+  deploy_host=$RESUME_HOST
+else
+  deploy_host=$RESUME_HOST_DEV
+fi
+echo "Deploying to $deploy_host"
+
+# Main
+## Ensure app dir present
+ssh $RESUME_USER@$deploy_host "mkdir -p $app_path"
+
+## Copy deploy dirs
+dir="$(dirname "$0")"
+for deploy_dir in "${deploy_dirs[@]}"
+do
+  echo "Copying $deploy_dir:"
+  scp -r "$dir/$deploy_dir" "$RESUME_USER@$deploy_host:$app_path"
+done
+
+# Finished
+echo "Finished copying"

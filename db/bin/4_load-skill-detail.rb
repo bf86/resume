@@ -3,7 +3,7 @@ require 'pg'
 def db
   return PG.connect(
     host: ENV['POSTGRES_HOST'],
-    dbname: ENV['POSTGRES_DB'],
+    dbname: ENV['POSTGRES_DB_NAME'],
     user: ENV['POSTGRES_USER'],
     password: ENV['POSTGRES_PASSWORD']
   )
