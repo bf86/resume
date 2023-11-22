@@ -3,11 +3,11 @@ require 'net/http'
 require 'rspec'
 require 'uri'
 
-API_URI = 'http://api:/api/pg'
+API_URI = 'http://api:/api'
 
 APP_KEYS = [
   'name',
-  'database',
+  'db',
   'api',
   'frontend',
   'webserver',
@@ -64,7 +64,16 @@ def list_response_test(uri, keys)
   body = res.body
   data = JSON.parse(body)
   all_match = data.all? do |hash|
-    hash.keys.sort() == keys.sort()
+    if hash.keys.sort() != keys.sort() then
+      puts ''
+      puts 'response keys:'
+      puts hash.keys.sort()
+      puts ''
+      puts 'expected keys:'
+      puts keys.sort()
+    else
+      true
+    end
   end
   expect(all_match).to eq(true)
 end
@@ -84,93 +93,123 @@ def show_404_response_test(uri, keys)
 end
 
 describe 'API' do
-  it 'Returns a list of apps' do
-    uri = URI("#{API_URI}/apps")
+  it 'Returns a list of apps (postgres)' do
+    uri = URI("#{API_URI}/pg/apps")
+    list_response_test(uri, APP_KEYS)
+  end
+
+  it 'Returns a list of from apps (mysql)' do
+    uri = URI("#{API_URI}/mysql/apps")
     list_response_test(uri, APP_KEYS)
   end
 
   it 'Returns a single app' do
-    uri = URI("#{API_URI}/apps/FullSend")
+    uri = URI("#{API_URI}/pg/apps/FullSend")
     show_response_test(uri, APP_KEYS)
   end
 
   it 'Returns 404 on non-existent app' do
-    uri = URI("#{API_URI}/apps/hornswoggle")
+    uri = URI("#{API_URI}/pg/apps/hornswoggle")
     show_404_response_test(uri, APP_KEYS)
   end
 
-  it 'Returns a list of projects' do
-    uri = URI("#{API_URI}/projects")
+  it 'Returns a list of projects (postgres)' do
+    uri = URI("#{API_URI}/pg/projects")
+    list_response_test(uri, PROJECT_KEYS)
+  end
+
+  it 'Returns a list of projects (mysql)' do
+    uri = URI("#{API_URI}/mysql/projects")
     list_response_test(uri, PROJECT_KEYS)
   end
 
   it 'Returns a single project' do
-    uri = URI("#{API_URI}/projects/Solutran")
+    uri = URI("#{API_URI}/pg/projects/Solutran")
     show_response_test(uri, PROJECT_KEYS)
   end
 
   it 'Returns 404 on non-existent project' do
-    uri = URI("#{API_URI}/projects/hornswoggle")
+    uri = URI("#{API_URI}/pg/projects/hornswoggle")
     show_404_response_test(uri, APP_KEYS)
   end
 
-  it 'Returns a list of skills grouped by type' do
-    uri = URI("#{API_URI}/skills")
+  it 'Returns a list of  grouped by type (postgres)' do
+    uri = URI("#{API_URI}/pg/skills")
+    list_response_test(uri, SKILL_BY_TYPE_KEYS)
+  end
+
+  it 'Returns a list of skills grouped by type (mysql)' do
+    uri = URI("#{API_URI}/mysql/skills")
     list_response_test(uri, SKILL_BY_TYPE_KEYS)
   end
 
   it 'Returns a single skill' do
-    uri = URI("#{API_URI}/skills/Firewall")
+    uri = URI("#{API_URI}/pg/skills/Firewall")
     show_response_test(uri, SKILL_KEYS)
   end
 
   it 'Returns 404 on non-existent skill' do
-    uri = URI("#{API_URI}/skills/hornswoggle")
+    uri = URI("#{API_URI}/pg/skills/hornswoggle")
     show_404_response_test(uri, APP_KEYS)
   end
 
-  it 'Returns a list of skill_types' do
-    uri = URI("#{API_URI}/skill-types")
+  it 'Returns a list of skill_types (postgres)' do
+    uri = URI("#{API_URI}/pg/skill-types")
+    list_response_test(uri, SKILL_TYPE_KEYS)
+  end
+
+  it 'Returns a list of skill_types (mysql)' do
+    uri = URI("#{API_URI}/mysql/skill-types")
     list_response_test(uri, SKILL_TYPE_KEYS)
   end
 
   it 'Returns a single skill_type' do
-    uri = URI("#{API_URI}/skill-types/Database")
+    uri = URI("#{API_URI}/pg/skill-types/Database")
     show_response_test(uri, SKILL_TYPE_KEYS)
   end
 
   it 'Returns 404 on non-existent skill_type' do
-    uri = URI("#{API_URI}/skill-types/hornswoggle")
+    uri = URI("#{API_URI}/pg/skill-types/hornswoggle")
     show_404_response_test(uri, APP_KEYS)
   end
 
-  it 'Returns a list of titles' do
-    uri = URI("#{API_URI}/titles")
+  it 'Returns a list of titles (postgres)' do
+    uri = URI("#{API_URI}/pg/titles")
+    list_response_test(uri, TITLE_KEYS)
+  end
+
+  it 'Returns a list of titles (mysql)' do
+    uri = URI("#{API_URI}/mysql/titles")
     list_response_test(uri, TITLE_KEYS)
   end
 
   it 'Returns a single title' do
-    uri = URI("#{API_URI}/titles/Senior%20Developer_CVS%20Health")
+    uri = URI("#{API_URI}/pg/titles/Senior%20Developer_CVS%20Health")
     show_response_test(uri, TITLE_KEYS)
   end
 
   it 'Returns 404 on non-existent title' do
-    uri = URI("#{API_URI}/title/hornswoggle")
+    uri = URI("#{API_URI}/pg/title/hornswoggle")
     show_404_response_test(uri, APP_KEYS)
   end
 
-  it 'Returns a list of education' do
-    uri = URI("#{API_URI}/education")
+  it 'Returns a list of education (postgres)' do
+    uri = URI("#{API_URI}/pg/education")
+    list_response_test(uri, EDUCATION_KEYS)
+  end
+
+  it 'Returns a list of education (mysql)' do
+    uri = URI("#{API_URI}/mysql/education")
     list_response_test(uri, EDUCATION_KEYS)
   end
 
   it 'Returns a single education' do
-    uri = URI("#{API_URI}/education/Launch%20Academy")
+    uri = URI("#{API_URI}/pg/education/Launch%20Academy")
     show_response_test(uri, EDUCATION_KEYS)
   end
 
   it 'Returns 404 on non-existent education' do
-    uri = URI("#{API_URI}/education/hornswoggle")
+    uri = URI("#{API_URI}/pg/education/hornswoggle")
     show_404_response_test(uri, APP_KEYS)
   end
 end

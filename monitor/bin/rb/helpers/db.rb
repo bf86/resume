@@ -4,7 +4,7 @@ require 'pg'
 
 puts 'connecting to:'
 puts "host: #{ENV['POSTGRES_HOST']}"
-puts "dbname: #{ENV['POSTGRES_DB']}"
+puts "dbname: #{ENV['POSTGRES_DB_NAME']}"
 
 # puts 'ok? (y/n)'
 # ok = gets.chomp == 'y'
@@ -13,7 +13,7 @@ puts "dbname: #{ENV['POSTGRES_DB']}"
 def db
   return PG.connect(
     host: ENV['POSTGRES_HOST'],
-    dbname: ENV['POSTGRES_DB'],
+    dbname: ENV['POSTGRES_DB_NAME'],
     user: ENV['POSTGRES_USER'],
     password: ENV['POSTGRES_PASSWORD']
   )

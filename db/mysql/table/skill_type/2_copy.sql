@@ -1,0 +1,13 @@
+LOAD DATA LOCAL INFILE
+  '/usr/src/app/csv/skill_type/skill_type.csv'
+INTO TABLE
+  app
+CHARACTER SET UTF8
+FIELDS
+TERMINATED BY '|'
+ENCLOSED BY ''
+ESCAPED BY '\\'
+LINES
+TERMINATED BY '\n'
+STARTING BY ''
+  (name);

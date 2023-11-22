@@ -6,7 +6,7 @@ services:
       service: api
     environment:
       - PRODUCTION=true
-  db:
+  postgres:
     container_name: db
     extends:
       file: base.yml
@@ -16,6 +16,10 @@ services:
       - ../config/postgresql.conf:/var/lib/postgresql/data/postgresql.conf
       - ../ssl/server.crt:/var/lib/postgresql/data/server.crt
       - ../ssl/server.key:/var/lib/postgresql/data/server.key
+  mysql:
+    extends:
+      file: base.yml
+      service: mysql
   nginx:
     extends:
       file: base.yml
@@ -34,4 +38,8 @@ services:
       service: cache
 volumes:
   db:
+    driver: local
+  postgres:
+    driver: local
+  mysql:
     driver: local

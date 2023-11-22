@@ -4,10 +4,14 @@ services:
     extends:
       file: base.yml
       service: api
-  db:
+  postgres:
     extends:
       file: base.yml
-      service: db
+      service: postgres
+  mysql:
+    extends:
+      file: base.yml
+      service: mysql
   nginx:
     extends:
       file: base.yml
@@ -24,4 +28,8 @@ services:
       service: cache
 volumes:
   db:
+    driver: local
+  postgres:
+    driver: local
+  mysql:
     driver: local

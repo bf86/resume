@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Vars
+declare -a tables=(
+  "app"
+  "education"
+  "faq"
+  "project"
+  "recommendation"
+  "skill_type"
+  "skill"
+  "title"
+)
+dir="$(dirname "$0")"
+psql_string="psql -h localhost -d $POSTGRES_DB_NAME -U $POSTGRES_USER"
+
+# Seed
+for table in "${tables[@]}"
+do
+  create_path="$dir/../table/$table/2_copy.sql"
+  if [ -f $copy_path ]; then
+    echo "Seeding table $table:"
+    $psql_string < $create_path
+  fi
+done
+
+python $dir/load-faq-answers.py

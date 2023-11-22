@@ -1,5 +1,5 @@
 gcloud compute instances create $1 \
-  --project=$RESUME_PROJECT_ID \
+  --project=$RESUME_GCLOUD_PROJECT_ID \
   --zone=$RESUME_INSTANCE_ZONE \
   --machine-type=$RESUME_MACHINE_TYPE \
   --network-interface=network-tier=PREMIUM,stack-type=IPV4_ONLY,subnet=default \

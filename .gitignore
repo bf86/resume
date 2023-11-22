@@ -3,6 +3,7 @@
 *.key
 *.log
 *.pem
+.my.cnf
 dockerfiles
 fixtures
 node_modules

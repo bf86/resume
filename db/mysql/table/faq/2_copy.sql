@@ -1,0 +1,13 @@
+LOAD DATA LOCAL INFILE
+  '/usr/src/app/csv/faq/faq.csv'
+INTO TABLE
+  faq
+CHARACTER SET UTF8
+FIELDS
+TERMINATED BY '|'
+ENCLOSED BY ''
+ESCAPED BY '\\'
+LINES
+TERMINATED BY '\n'
+STARTING BY ''
+  (id,question);

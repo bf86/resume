@@ -1,34 +1,61 @@
 version: "3.8"
 services:
-  pg_default:
+  db_defaults:
+    # These vars are set in ./.env e.g:
+    # RESUME_POSTGRES_HOST=dbhost.com
+    # RESUME_POSTGRES_PORT=12345
+    # This file can be overridden by shell env vars
     environment:
-      - POSTGRES_HOST=db
-      - POSTGRES_PORT=${RESUME_DB_PORT}
-      - POSTGRES_DB=${RESUME_DB}
-      - POSTGRES_USER=${RESUME_DB_USER}
-      - POSTGRES_PASSWORD=${RESUME_DB_PASSWORD}
+      - POSTGRES_HOST=${RESUME_POSTGRES_HOST}
+      - POSTGRES_PORT=${RESUME_POSTGRES_PORT}
+      - POSTGRES_DB_NAME=${RESUME_POSTGRES_DB_NAME}
+      - POSTGRES_USER=${RESUME_POSTGRES_USER}
+      - POSTGRES_PASSWORD=${RESUME_POSTGRES_PASSWORD}
+      - MYSQL_HOST=${RESUME_MYSQL_HOST}
+      - MYSQL_PORT=${RESUME_MYSQL_PORT}
+      - MYSQL_DB_NAME=${RESUME_MYSQL_DB_NAME}
+      - MYSQL_USER=${RESUME_MYSQL_USER}
+      - MYSQL_PASSWORD=${RESUME_MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${RESUME_MYSQL_ROOT_PASSWORD}
   api:
     extends:
-      service: pg_default
+      service: db_defaults
     container_name: api
     build: ../fastify
     restart: always
     links:
-      - db
+      - postgres
+      - mysql
       - cache
     volumes:
       - ../fastify:/usr/src/app
-  db:
+    commnd: env
+  postgres:
     extends:
-      service: pg_default
-    container_name: db
-    build: ../db
+      service: db_defaults
+    container_name: postgres
+    build: ../db/postgres
     restart: always
     ports:
-      - 5432:5432
+      - ${POSTGRES_PORT}:${POSTGRES_PORT}
     volumes:
       - db:/var/lib/postgresql/data
-      - ../db:/usr/src/app
+      - postgres:/var/lib/postgresql/data
+      - ../db/postgres:/usr/src/app
+      - ../db/csv:/usr/src/app/csv
+  mysql:
+    extends:
+      service: db_defaults
+    container_name: mysql
+    build: ../db/mysql
+    restart: always
+    ports:
+      - ${MYSQL_PORT}:${MYSQL_PORT}
+    volumes:
+      - mysql:/var/lib/mysql
+      - ../config/.my.cnf:/root/.my.cnf
+      - ../db/mysql:/usr/src/app
+      - ../db/csv:/usr/src/app/csv
   nginx:
     container_name: nginx
     image: nginx:latest
@@ -43,16 +70,16 @@ services:
       - ../log/access.log:/var/log/nginx/access.log
   monitor:
     extends:
-      service: pg_default
+      service: db_defaults
     container_name: monitor
     build: ../monitor
     restart: always
     environment:
-      - RESUME_PROJECT_ID=${RESUME_PROJECT_ID}
+      - RESUME_GCLOUD_PROJECT_ID=${RESUME_GCLOUD_PROJECT_ID}
       - NGINX_LOG_PATH=/var/log/nginx
     links:
       - api
-      - db
+      - postgres
       - nginx
     volumes:
       - ../log/access.log:/var/log/nginx/access.log
@@ -64,4 +91,8 @@ services:
     restart: always
 volumes:
   db:
+    driver: local
+  postgres:
+    driver: local
+  mysql:
     driver: local
