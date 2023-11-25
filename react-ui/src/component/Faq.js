@@ -13,6 +13,10 @@ function Faq() {
      fetch(apiUrl + '/api/pg/faq')
         .then((response) => response.json())
         .then((data) => {
+          data = data.map(function(record) {
+            record.answer = record.answer.split('\n');
+            return record;
+          });
           setFaq(data);
         })
         .catch((err) => {
@@ -28,7 +32,7 @@ function Faq() {
             {faq.map((question) => {
               return ( <>
                 <tr><th><h4>{question.question}</h4></th></tr>
-                <tr><td>{question.answer}</td></tr>
+                {question.answer.map(line => <p>{line}</p>)}
               </> )
             })}
           </tbody>

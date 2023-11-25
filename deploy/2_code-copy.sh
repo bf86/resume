@@ -38,6 +38,10 @@ ssh $RESUME_USER@$deploy_host "mkdir -p $app_path"
 dir="$(dirname "$0")"
 for deploy_dir in "${deploy_dirs[@]}"
 do
+  if [ "$deploy_dir" = "../react-ui/build" ]; then
+    echo "Building React UI:"
+    cd $dir/../react-ui && npm run build && cd $dir
+  fi
   echo "Copying $deploy_dir:"
   scp -r "$dir/$deploy_dir" "$RESUME_USER@$deploy_host:$app_path"
 done
