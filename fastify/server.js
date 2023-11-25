@@ -17,6 +17,7 @@ const models = `${__dirname}/models`;
 
 const App = require(`${models}/app`);
 const Education = require(`${models}/education`);
+const Faq = require(`${models}/faq`);
 const Project = require(`${models}/project`);
 const Recommendation = require(`${models}/recommendation`);
 const Skill = require(`${models}/skill`);
@@ -60,7 +61,13 @@ fastify.get('/api/pg/apps/:name', async function handler(request, reply) {
 });
 
 fastify.get('/api/pg/projects', async function handler(request, reply) {
-  let res = await Project.list();
+  let { redis } = fastify;
+  let redisRes = await redis.get('projects');
+  if (!redisRes) {
+    var dbRes = await Project.list();
+    await redis.set('projects', JSON.stringify(dbRes));
+  }
+  let res = redisRes || dbRes;
   corsReply(reply).send(res);
 });
 
@@ -102,7 +109,13 @@ fastify.get('/api/pg/skill-types/:name', async function handler(request, reply) 
 });
 
 fastify.get('/api/pg/titles', async function handler(request, reply) {
-  let res = await Title.list();
+  let { redis } = fastify;
+  let redisRes = await redis.get('titles');
+  if (!redisRes) {
+    var dbRes = await Title.list();
+    await redis.set('titles', JSON.stringify(dbRes));
+  }
+  let res = redisRes || dbRes;
   corsReply(reply).send(res);
 });
 
@@ -114,7 +127,13 @@ fastify.get('/api/pg/titles/:id', async function handler(request, reply) {
 });
 
 fastify.get('/api/pg/education', async function handler(request, reply) {
-  let res = await Education.list();
+  let { redis } = fastify;
+  let redisRes = await redis.get('education');
+  if (!redisRes) {
+    var dbRes = await Education.list();
+    await redis.set('education', JSON.stringify(dbRes));
+  }
+  let res = redisRes || dbRes;
   corsReply(reply).send(res);
 });
 
@@ -126,13 +145,24 @@ fastify.get('/api/pg/education/:institution', async function handler(request, re
 });
 
 fastify.get('/api/pg/recommendations', async function handler(request, reply) {
-  let res = await Recommendation.list();
+  let { redis } = fastify;
+  let redisRes = await redis.get('recommendations');
+  if (!redisRes) {
+    var dbRes = await Recommendation.list();
+    await redis.set('recommendations', JSON.stringify(dbRes));
+  }
+  let res = redisRes || dbRes;
   corsReply(reply).send(res);
 });
 
 fastify.get('/api/pg/faq', async function handler(request, reply) {
-  let faq = require(`${models}/faq`);
-  let res = await faq.list();
+  let { redis } = fastify;
+  let redisRes = await redis.get('faq');
+  if (!redisRes) {
+    var dbRes = await Faq.list();
+    await redis.set('faq', JSON.stringify(dbRes));
+  }
+  let res = redisRes || dbRes;
   corsReply(reply).send(res);
 });
 
