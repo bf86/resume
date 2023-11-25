@@ -1,6 +1,6 @@
-import React from 'react'
 import Accordion from 'react-bootstrap/Accordion';
 import Container from 'react-bootstrap/Container';
+import React from 'react'
 
 function Releases() {
   return (

@@ -1,8 +1,6 @@
 import Accordion from 'react-bootstrap/Accordion';
 import Container from 'react-bootstrap/Container';
-
 import React, { useState, useEffect } from 'react';
-
 import apiUrl from '../helper/apiUrl';
 
 function Skills() {

@@ -1,6 +1,6 @@
-import React from 'react'
 import Accordion from 'react-bootstrap/Accordion';
 import Container from 'react-bootstrap/Container';
+import React from 'react'
 
 import appDef from '../response-definitions/appDef';
 import projectDef from '../response-definitions/projectDef';
