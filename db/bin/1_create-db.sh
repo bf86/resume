@@ -15,14 +15,14 @@ declare -a tables=(
 dir="$(dirname "$0")"
 psql_string="psql -h localhost -d $POSTGRES_DB_NAME -U $POSTGRES_USER"
 
-# Drop
+# Drop tables
 for table in "${tables[@]}"
 do
   echo "Dropping table $table:"
   $psql_string -c "DROP TABLE IF EXISTS $table CASCADE"
 done
 
-# Create
+# Create tables
 for table in "${tables[@]}"
 do
   create_path="$dir/../table/$table/1_create.sql"

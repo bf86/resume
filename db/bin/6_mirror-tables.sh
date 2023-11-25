@@ -1,6 +1,8 @@
 #!/bin/bash
 
+#
 # Mirrors all production tables to local
+#
 
 # Vars
 declare -a tables=(

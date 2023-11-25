@@ -1,5 +1,6 @@
 require 'pg'
 
+# Functions
 def db
   return PG.connect(
     host: ENV['POSTGRES_HOST'],
@@ -22,6 +23,7 @@ def load_detail(skill)
   puts result.to_a
 end
 
+# Main
 sql = 'SELECT name FROM skill'
 result = db.exec(sql).map { |row| row['name'] }
 result.each { |skill| load_detail(skill) }

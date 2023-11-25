@@ -1,6 +1,8 @@
 #!/bin/bash
 
-# runs all deploy scripts
+#
+# Runs all deploy scripts
+#
 
 dir="$(dirname "$0")"
 bash $dir/2_code-copy.sh $1

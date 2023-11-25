@@ -14,7 +14,7 @@ declare -a tables=(
 dir="$(dirname "$0")"
 psql_string="psql -h localhost -d $POSTGRES_DB_NAME -U $POSTGRES_USER"
 
-# Seed
+# Seed tables
 for table in "${tables[@]}"
 do
   create_path="$dir/../table/$table/2_seed.sql"
@@ -24,4 +24,5 @@ do
   fi
 done
 
+# Load FAQ answers
 cd $dir && python3 3_load-faq-answers.py

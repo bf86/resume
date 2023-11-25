@@ -1,6 +1,8 @@
 #!/bin/bash
 
-# deploys current code on server in docker containers
+#
+# Deploys current code on server in docker containers
+#
 
 # Set deploy host
 deploy_host=""
