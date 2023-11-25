@@ -20,9 +20,6 @@ declare -a deploy_dirs=(
   "../ssl"
 )
 
-## App path
-app_path="/home/$RESUME_USER/resume"
-
 ## Deploy host
 deploy_host=""
 if [ "$1" = "prd" ]; then
@@ -34,6 +31,7 @@ echo "Deploying to $deploy_host"
 
 # Main
 ## Ensure app dir present
+app_path="/home/$RESUME_USER/resume"
 ssh $RESUME_USER@$deploy_host "mkdir -p $app_path"
 
 ## Copy deploy dirs
@@ -43,6 +41,11 @@ do
   echo "Copying $deploy_dir:"
   scp -r "$dir/$deploy_dir" "$RESUME_USER@$deploy_host:$app_path"
 done
+
+## Sync bash profile
+echo "Syncing bash profile"
+ssh $RESUME_USER@$deploy_host "sudo cp $app_path/config/.bash_profile /home/$RESUME_USER"
+ssh $RESUME_USER@$deploy_host "source /home/$RESUME_USER/.bash_profile"
 
 # Finished
 echo "Finished copying"

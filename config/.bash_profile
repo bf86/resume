@@ -17,3 +17,8 @@ function drf() { # - docker redeploy full
 
 # Shell functions
 function res() { source $HOME/.bash_profile; } # resource
+
+# Shell aliases
+alias ..="cd .."
+alias ...="cd ../.."
+alias l="ls -lah"
