@@ -39,7 +39,7 @@ function Endpoints() {
                     {endpoint.definition}
                   </textarea>
                   <div class="row">
-                    <a href={'https://brian86.dev' + endpoint.uri} target="_blank">Try it</a>
+                    <a href={'https://brian86.dev' + endpoint.uri} target="_blank" rel="noreferrer">Try it</a>
                   </div>
                 </Accordion.Body>
               </Accordion.Item>

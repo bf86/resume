@@ -66,8 +66,8 @@ function Releases() {
             <Accordion.Header>Contact</Accordion.Header>
             <Accordion.Body>
             <ul>
-              <li><a href="https://github.com/bf86/resume" target="_blank">GitHub</a></li>
-              <li><a href="https://www.linkedin.com/in/briangfink/" target="_blank">LinkedIn</a></li>
+              <li><a href="https://github.com/bf86/resume" target="_blank" rel="noreferrer">GitHub</a></li>
+              <li><a href="https://www.linkedin.com/in/briangfink/" target="_blank" rel="noreferrer">LinkedIn</a></li>
               <li>brian.g.fink@gmail.com</li>
               <li>617-460-5059</li>
             </ul>
