@@ -2,9 +2,9 @@ import Accordion from 'react-bootstrap/Accordion';
 import Container from 'react-bootstrap/Container';
 import React from 'react'
 
-function Releases() {
+function Info() {
   return (
-    <div className="Releases" style={{"margin-top": "15px"}}>
+    <div className="Info" style={{"margin-top": "15px"}}>
       <Container>
         <p class="display-6">Additional Info</p>
         <Accordion>
@@ -79,4 +79,4 @@ function Releases() {
   );
 }
 
-export default Releases;
+export default Info;
