@@ -1,6 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Table from 'react-bootstrap/Table';
 import React, { useState, useEffect } from 'react';
+import Loading from './Loading';
 import apiUrl from '../helper/apiUrl';
 
 function Faq() {
@@ -22,7 +23,7 @@ function Faq() {
   return (
     <div className="Faq">
       <Container>
-        {faq.length === 0 && <p> Loading... </p>}
+        {faq.length === 0 && <Loading />}
         <Table>
           <tbody>
             {faq.map((question) => {

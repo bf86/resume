@@ -1,5 +1,6 @@
 import Container from 'react-bootstrap/Container';
 import React, { useState, useEffect } from 'react';
+import Loading from './Loading';
 import apiUrl from '../helper/apiUrl';
 
 function Skills() {
@@ -17,7 +18,7 @@ function Skills() {
   return (
     <div className="Skills">
       <Container>
-        {skills.length === 0 && <p> Loading... </p>}
+        {skills.length === 0 && <Loading />}
         {skills.map((skill, index) => {
           let subskills = skill.skills.map((subskill => subskill.name));
           return ( <>

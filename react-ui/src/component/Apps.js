@@ -1,6 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Table from 'react-bootstrap/Table';
 import React, { useState, useEffect } from 'react';
+import Loading from './Loading';
 import apiUrl from '../helper/apiUrl';
 
 function Apps() {
@@ -19,7 +20,7 @@ function Apps() {
   return (
     <div className="Apps">
       <Container>
-        {apps.length === 0 && <p> Loading... </p>}
+        {apps.length === 0 && <Loading />}
         <Table>
           <tbody>
             {apps.map((app) => {

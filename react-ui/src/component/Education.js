@@ -1,6 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Table from 'react-bootstrap/Table';
 import React, { useState, useEffect } from 'react';
+import Loading from './Loading';
 import apiUrl from '../helper/apiUrl';
 
 function Education() {
@@ -18,7 +19,7 @@ function Education() {
   return (
     <div className="Education">
       <Container>
-        {education.length === 0 && <p> Loading... </p>}
+        {education.length === 0 && <Loading />}
         {education.map((education) => {
           if (education.degree === 'N/A') {
             education.degree = '';

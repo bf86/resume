@@ -1,6 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Table from 'react-bootstrap/Table';
 import React, { useState, useEffect } from 'react';
+import Loading from './Loading';
 import apiUrl from '../helper/apiUrl';
 
 function Projects() {
@@ -18,7 +19,7 @@ function Projects() {
   return (
     <div className="Projects">
       <Container>
-        {projects.length === 0 && <p> Loading... </p>}
+        {projects.length === 0 && <Loading />}
         <Table>
           <tbody>
             {projects.map((project) => {
