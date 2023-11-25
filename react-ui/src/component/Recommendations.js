@@ -10,13 +10,13 @@ import apiUrl from '../helper/apiUrl';
 function Recommendations() {
   const [recommendations, setRecommendations] = useState([]);
   useEffect(() => {
-     fetch(apiUrl + '/api/pg/recommendations')
-        .then((response) => response.json())
-        .then((data) => {
-          setRecommendations(data);
-        })
-        .catch((err) => {
-        });
+    fetch(apiUrl + '/api/pg/recommendations')
+      .then((response) => response.json())
+      .then((data) => {
+        setRecommendations(data);
+      })
+      .catch((err) => {
+      });
   }, []);
 
   return (

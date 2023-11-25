@@ -10,13 +10,13 @@ import apiUrl from '../helper/apiUrl';
 function Education() {
   const [education, setEducation] = useState([]);
   useEffect(() => {
-     fetch(apiUrl + '/api/pg/education')
-        .then((response) => response.json())
-        .then((data) => {
-          setEducation(data);
-        })
-        .catch((err) => {
-        });
+    fetch(apiUrl + '/api/pg/education')
+      .then((response) => response.json())
+      .then((data) => {
+        setEducation(data);
+      })
+      .catch((err) => {
+      });
   }, []);
 
   return (

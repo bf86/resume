@@ -10,17 +10,17 @@ import apiUrl from '../helper/apiUrl';
 function Faq() {
   const [faq, setFaq] = useState([]);
   useEffect(() => {
-     fetch(apiUrl + '/api/pg/faq')
-        .then((response) => response.json())
-        .then((data) => {
-          data = data.map(function(record) {
-            record.answer = record.answer.split('\n');
-            return record;
-          });
-          setFaq(data);
-        })
-        .catch((err) => {
+    fetch(apiUrl + '/api/pg/faq')
+      .then((response) => response.json())
+      .then((data) => {
+        data = data.map(function(record) {
+          record.answer = record.answer.split('\n');
+          return record;
         });
+        setFaq(data);
+      })
+      .catch((err) => {
+      });
   }, []);
 
   return (

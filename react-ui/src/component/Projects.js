@@ -10,13 +10,13 @@ import apiUrl from '../helper/apiUrl';
 function Projects() {
   const [projects, setProjects] = useState([]);
   useEffect(() => {
-     fetch(apiUrl + '/api/pg/projects')
-        .then((response) => response.json())
-        .then((data) => {
-          setProjects(data);
-        })
-        .catch((err) => {
-        });
+    fetch(apiUrl + '/api/pg/projects')
+      .then((response) => response.json())
+      .then((data) => {
+        setProjects(data);
+      })
+      .catch((err) => {
+      });
   }, []);
 
   return (

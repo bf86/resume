@@ -10,13 +10,13 @@ import apiUrl from '../helper/apiUrl';
 function Titles() {
   const [titles, setTitles] = useState([]);
   useEffect(() => {
-     fetch(apiUrl + '/api/pg/titles')
-        .then((response) => response.json())
-        .then((data) => {
-          setTitles(data);
-        })
-        .catch((err) => {
-        });
+    fetch(apiUrl + '/api/pg/titles')
+      .then((response) => response.json())
+      .then((data) => {
+        setTitles(data);
+      })
+      .catch((err) => {
+      });
   }, []);
 
   return (
