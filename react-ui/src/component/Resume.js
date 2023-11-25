@@ -10,8 +10,6 @@ import Recommendations from './Recommendations';
 import Skills from './Skills';
 import Titles from './Titles';
 
-import 'bootstrap/dist/css/bootstrap.css';
-
 function Resume() {
   return (
     <div className="Resume">

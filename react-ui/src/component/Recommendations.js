@@ -1,8 +1,6 @@
 import Container from 'react-bootstrap/Container';
 import Table from 'react-bootstrap/Table';
 
-import 'bootstrap/dist/css/bootstrap.css';
-
 import React, { useState, useEffect } from 'react';
 
 import apiUrl from '../helper/apiUrl';

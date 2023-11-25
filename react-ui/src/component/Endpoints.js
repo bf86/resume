@@ -9,8 +9,6 @@ import skillTypeDef from '../response-definitions/skillTypeDef';
 import titleDef from '../response-definitions/titleDef';
 import educationDef from '../response-definitions/educationDef';
 
-import 'bootstrap/dist/css/bootstrap.css';
-
 const endpoints = [
   { method: 'GET', uri: '/api/pg/apps', definition: appDef },
   { method: 'GET', uri: '/api/pg/projects', definition: projectDef },
