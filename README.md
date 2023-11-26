@@ -19,6 +19,7 @@
 - Google Cloud Firewall
 
 ## Releases
+- 2023-11-26 14:58 0.2.5 Clean / expand / fix infra scripts, dev is now called stg, dynamic React API URI
 - 2023-11-26 09:03 0.2.4 Adjust cron schedule (no overnight alerts), add chown fix to deploy script
 - 2023-11-25 21:14 0.2.3 Minor code and style cleanup, loop the loading animation
 - 2023-11-25 19:09 0.2.2 Increase rate limit, redis for all endpoints, animated loading component, misc code cleanup

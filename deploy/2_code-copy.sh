@@ -9,15 +9,15 @@ set -e
 # Options
 ## Deploy dirs
 declare -a deploy_dirs=(
-  # "../compose"
-  # "../cron"
+  "../compose"
+  "../cron"
   "../config"
-  # "../db"
-  # "../fastify"
-  # "../monitor"
-  # "../provision"
+  "../db"
+  "../fastify"
+  "../monitor"
+  "../provision"
   "../react-ui/build"
-  # "../ssl"
+  "../ssl"
 )
 
 ## Deploy host
@@ -25,7 +25,7 @@ deploy_host=""
 if [ "$1" = "prd" ]; then
   deploy_host=$RESUME_HOST
 else
-  deploy_host=$RESUME_HOST_DEV
+  deploy_host=$RESUME_HOST_STG
 fi
 echo "Deploying to $deploy_host"
 
@@ -41,7 +41,7 @@ do
   ### Build React UI before deploying
   if [ "$deploy_dir" = "../react-ui/build" ]; then
     echo "Building React UI:"
-    cd $dir/../react-ui && npm run build && cd $dir
+    cd $dir/../react-ui && REACT_APP_API_URI="$deploy_host" npm run build && cd $dir
   fi
 
   ### Ensure correct owner on config files (Docker changes owner to systedm-coredump)

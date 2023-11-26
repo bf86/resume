@@ -7,12 +7,12 @@
 # Set deploy host
 deploy_host=""
 if [ "$1" = "prd" ]; then
-  echo "Production deploy"
   deploy_host=$RESUME_HOST
+
 else
-  echo "Dev deploy"
-  deploy_host=$RESUME_HOST_DEV
+  deploy_host=$RESUME_HOST_STG
 fi
+echo "Deploying docker containers to $deploy_host"
 
 # Options
 containers="api db cache nginx monitor"

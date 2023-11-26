@@ -1,5 +1,4 @@
-# Suggested image name format:
-# brian86-YYYY-MM-DD
+# $1 = Image name (suggested format: mycoolapp-YYYY-MM-DD)
 
 gcloud beta compute machine-images create $1 \
   --project=$RESUME_GCLOUD_PROJECT_ID \

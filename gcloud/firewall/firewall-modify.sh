@@ -1,3 +1,3 @@
 gcloud compute --project=$RESUME_GCLOUD_PROJECT_ID \
   firewall-rules update no-hackers \
-    --source-ranges=#0.0.0.0/32,255.255.255.255/32
+  --source-ranges=#0.0.0.0/32,255.255.255.255/32

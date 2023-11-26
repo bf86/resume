@@ -24,6 +24,6 @@ MAILTO=""
 # For more information see the manual pages of crontab(5) and cron(8)
 #
 # m h          dom mon dow   command
-  5 0-4,12-23  *   *   *     bash /home/Brian/resume/cron/api.sh
-  5 0-4,12-23  *   *   *     bash /home/Brian/resume/cron/space.sh
-  5 0-4,12-23  *   *   *     bash /home/Brian/resume/cron/ips.sh
+  0 0-4,12-23  *   *   *     bash /home/Brian/resume/cron/api.sh
+  0 0-4,12-23  *   *   *     bash /home/Brian/resume/cron/space.sh
+  0 0-4,12-23  *   *   *     bash /home/Brian/resume/cron/ips.sh

@@ -34,6 +34,7 @@ function Info() {
             <Accordion.Header>Releases</Accordion.Header>
             <Accordion.Body>
             <ul style={{"font-family": "monospace"}}>
+              <li>2023-11-26 14:58 0.2.5 Clean / expand / fix infra scripts, dev is now called stg, dynamic React API URI</li>
               <li>2023-11-26 09:03 0.2.4 Adjust cron schedule (no overnight alerts), add chown fix to deploy script</li>
               <li>2023-11-25 21:14 0.2.3 Minor code and style cleanup, loop the loading animation</li>
               <li>2023-11-25 19:09 0.2.2 Increase rate limit, redis for all endpoints, animated loading component, misc code cleanup</li>
