@@ -14,7 +14,7 @@ function Titles() {
       })
       .catch((err) => {
       });
-  }, []);
+  });
 
   return (
     <div className="Titles">

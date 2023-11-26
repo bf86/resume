@@ -18,7 +18,7 @@ function Faq() {
       })
       .catch((err) => {
       });
-  }, []);
+  });
 
   return (
     <div className="Faq">

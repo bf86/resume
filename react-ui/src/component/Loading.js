@@ -11,7 +11,7 @@ function Loading() {
       setTimeout(() => setDotsHelper(dots), 1000);
     }
     setDotsHelper('');
-  }, []);
+  });
 
   return ( <span>{`Loading${dots}`}</span> );
 }

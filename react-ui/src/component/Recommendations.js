@@ -14,7 +14,7 @@ function Recommendations() {
       })
       .catch((err) => {
       });
-  }, []);
+  });
 
   return (
     <div className="Recommendations">

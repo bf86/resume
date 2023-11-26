@@ -13,7 +13,7 @@ function Skills() {
       })
       .catch((err) => {
       });
-  }, []);
+  });
 
   return (
     <div className="Skills">
