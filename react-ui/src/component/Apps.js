@@ -11,6 +11,19 @@ function Apps() {
     fetch(apiUrl + '/api/pg/apps')
       .then((response) => response.json())
       .then((data) => {
+        data = data.map(function(record) {
+          console.log(record);
+          record.techStack = [
+            record.db,
+            record.api,
+            record.frontend,
+            record.webserver,
+            record.os
+          ]
+            .filter(element => element)
+            .join(', ');
+          return record;
+        });
         setApps(data);
       })
       .catch((err) => {
@@ -24,13 +37,6 @@ function Apps() {
         <Table>
           <tbody>
             {apps.map((app) => {
-              app.techStack = `
-                ${app.db && app.db !== 'null' ? app.db + ',' : ''}
-                ${app.api && app.api !== 'null' ? app.api + ',' : ''}
-                ${app.frontend && app.frontend !== 'null' ? app.frontend + ',' : ''}
-                ${app.webserver && app.webserver !== 'null' ? app.webserver + ',' : ''}
-                ${app.os && app.os !== 'null' ? app.os : ''}
-              `;
               return ( <>
                 <tr><th><h3>{app.name}</h3></th></tr>
                 <tr><th>Role</th><td>{app.role}</td></tr>
