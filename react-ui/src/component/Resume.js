@@ -1,6 +1,5 @@
 import Accordion from 'react-bootstrap/Accordion';
 import Container from 'react-bootstrap/Container';
-import React from 'react';
 
 import Apps from './Apps';
 import Education from './Education';

@@ -1,6 +1,6 @@
 import Container from 'react-bootstrap/Container';
 import Table from 'react-bootstrap/Table';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Loading from './Loading';
 import apiUrl from '../helper/apiUrl';
 

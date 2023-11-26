@@ -1,5 +1,5 @@
 import Container from 'react-bootstrap/Container';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Loading from './Loading';
 import apiUrl from '../helper/apiUrl';
 
