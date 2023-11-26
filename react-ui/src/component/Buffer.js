@@ -1,5 +1,4 @@
-import Container from 'react-bootstrap/Container';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 function Buffer() {
   return (
