@@ -34,6 +34,7 @@ function Info() {
             <Accordion.Header>Releases</Accordion.Header>
             <Accordion.Body>
             <ul style={{"font-family": "monospace"}}>
+              <li>2023-11-25 21:14 0.2.3 Minor code and style cleanup, loop the loading animation</li>
               <li>2023-11-25 19:09 0.2.2 Increase rate limit, redis for all endpoints, animated loading component, misc code cleanup</li>
               <li>2023-11-25 12:47 0.2.1 Add line breaks to FAQ answers + add React build step to deploy script</li>
               <li>2023-11-25 09:26 0.2.0 Add hostname to cron email</li>
