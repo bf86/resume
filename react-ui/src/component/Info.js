@@ -10,7 +10,7 @@ function Info() {
           <Accordion.Item eventKey="0">
             <Accordion.Header>Tech Stack</Accordion.Header>
             <Accordion.Body>
-              <p>This API built with:</p>
+              <p>This site built with:</p>
               <ul>
                 <li>Google Virtual Private Cloud</li>
                 <li>E2 Micro Ubuntu VM</li>
