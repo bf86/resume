@@ -5,13 +5,12 @@ function Loading() {
   const [dots, setDots] = useState([]);
 
   useEffect(() => {
-    setDots('');
-    setTimeout(() => setDots('.'), 1000);
-    setTimeout(() => setDots('..'), 2000);
-    setTimeout(() => setDots('...'), 3000);
-    setTimeout(() => setDots('.'), 4000);
-    setTimeout(() => setDots('..'), 5000);
-    setTimeout(() => setDots('...'), 6000);
+    function setDotsHelper(dots) {
+      setDots(dots);
+      dots.length < 3 ? dots += '.' : dots = '';
+      setTimeout(() => setDotsHelper(dots), 1000);
+    }
+    setDotsHelper('');
   }, []);
 
   return ( <span>{`Loading${dots}`}</span> );
