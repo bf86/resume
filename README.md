@@ -13,6 +13,7 @@
 - Docker
   - PostgreSQL Database
   - NodeJS (Fastify) API
+  - Redis Cache
   - React UI
   - Nginx Reverse Proxy + SSL
 - Google Cloud Firewall
