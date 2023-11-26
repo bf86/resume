@@ -19,7 +19,7 @@
 - Google Cloud Firewall
 
 ## Releases
-- 2023-11-26 09:03 Adjust cron schedule to UTC 0-4,12-23 (no overnight runs)
+- 2023-11-26 09:03 0.2.4 Adjust cron schedule (no overnight alerts), add chown fix to deploy script
 - 2023-11-25 21:14 0.2.3 Minor code and style cleanup, loop the loading animation
 - 2023-11-25 19:09 0.2.2 Increase rate limit, redis for all endpoints, animated loading component, misc code cleanup
 - 2023-11-25 12:47 0.2.1 Add line breaks to FAQ answers + add React build step to deploy script

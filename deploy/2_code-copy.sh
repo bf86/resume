@@ -9,15 +9,15 @@ set -e
 # Options
 ## Deploy dirs
 declare -a deploy_dirs=(
-  "../compose"
-  "../cron"
+  # "../compose"
+  # "../cron"
   "../config"
-  "../db"
-  "../fastify"
-  "../monitor"
-  "../provision"
+  # "../db"
+  # "../fastify"
+  # "../monitor"
+  # "../provision"
   "../react-ui/build"
-  "../ssl"
+  # "../ssl"
 )
 
 ## Deploy host
@@ -38,18 +38,26 @@ ssh $RESUME_USER@$deploy_host "mkdir -p $app_path"
 dir="$(dirname "$0")"
 for deploy_dir in "${deploy_dirs[@]}"
 do
+  ### Build React UI before deploying
   if [ "$deploy_dir" = "../react-ui/build" ]; then
     echo "Building React UI:"
     cd $dir/../react-ui && npm run build && cd $dir
   fi
+
+  ### Ensure correct owner on config files (Docker changes owner to systedm-coredump)
+  ### Sync bash profile
+  if [ "$deploy_dir" = "../config" ]; then
+    echo "Setting config file owner:"
+    ssh "$RESUME_USER@$deploy_host" "sudo chown -v $RESUME_USER $app_path/config/*"
+    echo "Syncing bash profile:"
+    ssh $RESUME_USER@$deploy_host "sudo cp -v $app_path/config/.bash_profile /home/$RESUME_USER"
+    ssh $RESUME_USER@$deploy_host "source /home/$RESUME_USER/.bash_profile"
+  fi
+
+  ### Copy
   echo "Copying $deploy_dir:"
   scp -r "$dir/$deploy_dir" "$RESUME_USER@$deploy_host:$app_path"
 done
-
-## Sync bash profile
-echo "Syncing bash profile"
-ssh $RESUME_USER@$deploy_host "sudo cp $app_path/config/.bash_profile /home/$RESUME_USER"
-ssh $RESUME_USER@$deploy_host "source /home/$RESUME_USER/.bash_profile"
 
 # Finished
 echo "Finished copying"
