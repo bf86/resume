@@ -28,7 +28,7 @@ function Apps() {
       })
       .catch((err) => {
       });
-  });
+  }, []);
 
   return (
     <div className="Apps">

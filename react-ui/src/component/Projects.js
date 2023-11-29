@@ -14,7 +14,7 @@ function Projects() {
       })
       .catch((err) => {
       });
-  });
+  }, []);
 
   return (
     <div className="Projects">

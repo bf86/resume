@@ -14,7 +14,7 @@ function Education() {
       })
       .catch((err) => {
       });
-  });
+  }, []);
 
   return (
     <div className="Education">
