@@ -19,6 +19,7 @@
 - Google Cloud Firewall
 
 ## Releases
+- 2023-12-01 15:12 0.2.7 Setup nginx access.log rotation, sync crontab on deploy
 - 2023-11-28 19:57 0.2.6 Fix infinite API request loop bug introduced in 0.2.2
 - 2023-11-26 14:58 0.2.5 Clean / expand / fix infra scripts, dev is now called stg, dynamic React API URI
 - 2023-11-26 09:03 0.2.4 Adjust cron schedule (no overnight alerts), add chown fix to deploy script

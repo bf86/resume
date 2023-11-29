@@ -43,7 +43,7 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - ../log/access.log:/var/log/nginx/access.log
+      - /var/log/nginx/:/var/log/nginx/
   monitor:
     extends:
       service: pg_default
@@ -58,7 +58,7 @@ services:
       - db
       - nginx
     volumes:
-      - ../log/access.log:/var/log/nginx/access.log
+      - /var/log/nginx/:/var/log/nginx/
       - ../monitor:/monitor
     command: tail -f /etc/issue # Arbitrary command to keep container running
   cache:

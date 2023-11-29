@@ -45,18 +45,30 @@ do
   fi
 
   ### Ensure correct owner on config files (Docker changes owner to systedm-coredump)
-  ### Sync bash profile
   if [ "$deploy_dir" = "../config" ]; then
     echo "Setting config file owner:"
     ssh "$RESUME_USER@$deploy_host" "sudo chown -v $RESUME_USER $app_path/config/*"
-    echo "Syncing bash profile:"
-    ssh $RESUME_USER@$deploy_host "sudo cp -v $app_path/config/.bash_profile /home/$RESUME_USER"
-    ssh $RESUME_USER@$deploy_host "source /home/$RESUME_USER/.bash_profile"
   fi
 
   ### Copy
   echo "Copying $deploy_dir:"
   scp -r "$dir/$deploy_dir" "$RESUME_USER@$deploy_host:$app_path"
+
+  ### Sync bash profile
+  ### Place logrotate config
+  if [ "$deploy_dir" = "../config" ]; then
+    echo "Syncing bash profile:"
+    ssh $RESUME_USER@$deploy_host "sudo cp -v $app_path/config/.bash_profile /home/$RESUME_USER"
+    ssh $RESUME_USER@$deploy_host "source /home/$RESUME_USER/.bash_profile"
+    echo "Placing logrotate config:"
+    ssh $RESUME_USER@$deploy_host "sudo cp -v $app_path/config/logrotate.d/* /etc/logrotate.d/"
+  fi
+
+  ### Sync crontab
+  if [ "$deploy_dir" = "../cron" ]; then
+    echo "Syncing crontab:"
+    ssh $RESUME_USER@$deploy_host "crontab $app_path/cron/_crontab"
+  fi
 done
 
 # Finished
