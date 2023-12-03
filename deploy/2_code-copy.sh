@@ -66,7 +66,7 @@ do
 
   ### Sync crontab
   if [ "$deploy_dir" = "../cron" ]; then
-    echo "Syncing crontab:"
+    echo "Syncing crontab"
     ssh $RESUME_USER@$deploy_host "crontab $app_path/cron/_crontab"
   fi
 done

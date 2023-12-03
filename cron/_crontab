@@ -23,8 +23,8 @@ MAILTO=""
 #
 # For more information see the manual pages of crontab(5) and cron(8)
 #
-# m h          dom mon dow   command
-  0 0-4,12-23  *   *   *     bash $HOME/resume/cron/api.sh
-  0 0-4,12-23  *   *   *     bash $HOME/resume/cron/ips.sh
-  0 0-4,12-23  *   *   *     bash $HOME/resume/cron/logrotate.sh
-  0 0-4,12-23  *   *   *     bash $HOME/resume/cron/space.sh
+# m h   dom mon dow  command
+  0 12  *   *   *    bash $HOME/resume/cron/api.sh
+  0 12  *   *   *    bash $HOME/resume/cron/ips.sh
+  0 12  *   *   *    bash $HOME/resume/cron/logrotate.sh
+  0 12  *   *   *    bash $HOME/resume/cron/space.sh
