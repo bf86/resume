@@ -17,8 +17,8 @@ openssl req -new -newkey rsa:2048 -nodes -keyout $1.key -out $1.csr
 # Install Certbot
 # Certbot certs are not recommended
 # But they're good enough for my resume site
-sudo snap install --classic certbot
-sudo ln -s /snap/bin/certbot /usr/bin/certbot
+sudo snap install --classic certbot || true
+sudo ln -s /snap/bin/certbot /usr/bin/certbot || true
 
 # Install Nginx
 sudo apt update
@@ -36,7 +36,7 @@ sudo cp -v /etc/letsencrypt/live/$1/privkey.pem $HOME/$2/ssl/
 # Uninstall Nginx
 # Certbot requires a host level nginx install
 # But I just want a cert to use in the container
-sudo systemctl stop nginx-agent
+sudo systemctl stop nginx-agent || true
 sudo apt remove -y nginx nginx-common nginx-core
 sudo rm -rf /usr/sbin/nginx
 
