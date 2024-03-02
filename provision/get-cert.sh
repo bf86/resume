@@ -9,6 +9,11 @@ set -e
 # $1 - DNS (eg. mycoolap-dev.com)
 # $2 - App name for cert location (eg. mycoolap)
 
+if [[ -z "$2" ]]; then
+    echo "usage: get-cert.sh [DNS] [App name]"
+    exit 1
+fi
+
 # Generate Certificate Request + Key
 ssl_dir="/ssl"
 [ -d $ssl_dir ] || sudo mkdir $ssl_dir
@@ -30,8 +35,9 @@ sudo apt install -y nginx
 sudo certbot certonly --nginx || true
 
 # Place cert in app dir
-sudo cp -v /etc/letsencrypt/live/$1/fullchain.pem $HOME/$2/ssl/
-sudo cp -v /etc/letsencrypt/live/$1/privkey.pem $HOME/$2/ssl/
+home="$HOME"
+sudo cp -v /etc/letsencrypt/live/$1/fullchain.pem $home/$2/ssl/
+sudo cp -v /etc/letsencrypt/live/$1/privkey.pem $home/$2/ssl/
 
 # Uninstall Nginx
 # Certbot requires a host level nginx install
