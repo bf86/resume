@@ -4,6 +4,9 @@ services:
     extends:
       file: base.yml
       service: api
+    links:
+      - db
+      - cache
     environment:
       - PRODUCTION=true
   db:
@@ -20,6 +23,8 @@ services:
     extends:
       file: base.yml
       service: nginx
+    links:
+      - api
     volumes:
       - ../config/nginx-production.conf:/etc/nginx/nginx.conf
       - ../build:/www/data/html
@@ -29,6 +34,10 @@ services:
     extends:
       file: base.yml
       service: monitor
+    links:
+      - api
+      - db
+      - nginx
   cache:
     extends:
       file: base.yml

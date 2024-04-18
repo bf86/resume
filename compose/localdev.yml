@@ -4,6 +4,9 @@ services:
     extends:
       file: base.yml
       service: api
+    links:
+      - db
+      - cache
   db:
     extends:
       file: base.yml
@@ -12,6 +15,8 @@ services:
     extends:
       file: base.yml
       service: nginx
+    links:
+      - api
     volumes:
       - ../config/nginx-localdev.conf:/etc/nginx/nginx.conf
       - ../react-ui/build:/www/data/html
@@ -19,6 +24,10 @@ services:
     extends:
       file: base.yml
       service: monitor
+    links:
+      - api
+      - db
+      - nginx
   cache:
     extends:
       file: base.yml

@@ -17,9 +17,6 @@ services:
     container_name: api
     build: ../fastify
     restart: always
-    links:
-      - db
-      - cache
     volumes:
       - ../fastify:/usr/src/app
   db:
@@ -37,8 +34,6 @@ services:
     container_name: nginx
     image: nginx:latest
     restart: always
-    links:
-      - api
     ports:
       - 80:80
       - 443:443
@@ -53,10 +48,7 @@ services:
     environment:
       - RESUME_GCLOUD_PROJECT_ID=${RESUME_GCLOUD_PROJECT_ID}
       - NGINX_LOG_PATH=/var/log/nginx
-    links:
-      - api
-      - db
-      - nginx
+
     volumes:
       - /var/log/nginx/:/var/log/nginx/
       - ../monitor:/monitor
