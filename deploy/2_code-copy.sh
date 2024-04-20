@@ -14,6 +14,7 @@ declare -a deploy_dirs=(
   "../config"
   "../db"
   "../fastify"
+  "../laravel"
   "../monitor"
   "../provision"
   "../react-ui/build"

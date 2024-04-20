@@ -11,12 +11,25 @@ services:
     extends:
       file: base.yml
       service: db
+  laravel:
+    build: ../laravel
+    container_name: laravel
+    links:
+      - db
+      - cache
+    ports:
+      - 3306:3306
+    volumes:
+      - ../laravel/example-app:/usr/src/example-app
   nginx:
     extends:
       file: base.yml
       service: nginx
     links:
       - api
+      - laravel
+    ports:
+      - 8000:8000
     volumes:
       - ../config/nginx-localdev.conf:/etc/nginx/nginx.conf
       - ../react-ui/build:/www/data/html

@@ -1,3 +1,7 @@
+- Next
+- Clean up and "merge" basic laravel setup
+- Migrate to AWS
+
 - Rename skills to experience?
 - Error handling
   - Invalid routes
