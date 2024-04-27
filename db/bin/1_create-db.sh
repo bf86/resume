@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# NOTE: Intended to be run in container
+
 # Vars
 declare -a tables=(
   "app"
@@ -13,6 +15,7 @@ declare -a tables=(
   "title"
 )
 dir="$(dirname "$0")"
+psql -h localhost -U $POSTGRES_USER -c "CREATE DATABASE resume"
 psql_string="psql -h localhost -d $POSTGRES_DB_NAME -U $POSTGRES_USER"
 
 # Drop tables
