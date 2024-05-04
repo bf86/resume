@@ -21,19 +21,25 @@ declare -a deploy_dirs=(
   "../ssl"
 )
 
-## Deploy host
+## Deploy host / user
 deploy_host=""
+deploy_user=""
 if [ "$1" = "prd" ]; then
   deploy_host=$RESUME_HOST
+  deploy_user=$RESUME_USER
+elif [ "$1" = "aws" ]; then
+    deploy_host=$RESUME_IP_AWS_1
+    deploy_user=$RESUME_USER_AWS
 else
   deploy_host=$RESUME_HOST_STG
+  deploy_user=$RESUME_USER
 fi
-echo "Deploying to $deploy_host"
+echo "Deploying to $deploy_host as $deploy_user"
 
 # Main
 ## Ensure app dir present
-app_path="/home/$RESUME_USER/resume"
-ssh $RESUME_USER@$deploy_host "mkdir -p $app_path"
+app_path="/home/$deploy_user/resume"
+ssh $deploy_user@$deploy_host "mkdir -p $app_path"
 
 ## Copy deploy dirs
 dir="$(dirname "$0")"
@@ -48,27 +54,27 @@ do
   ### Ensure correct owner on config files (Docker changes owner to systedm-coredump)
   if [ "$deploy_dir" = "../config" ]; then
     echo "Setting config file owner:"
-    ssh "$RESUME_USER@$deploy_host" "sudo chown -v $RESUME_USER $app_path/config/*"
+    ssh "$deploy_user@$deploy_host" "sudo chown -v $deploy_user $app_path/config/*"
   fi
 
   ### Copy
   echo "Copying $deploy_dir:"
-  scp -r "$dir/$deploy_dir" "$RESUME_USER@$deploy_host:$app_path"
+  scp -r "$dir/$deploy_dir" "$deploy_user@$deploy_host:$app_path"
 
   ### Sync bash profile
   ### Place logrotate config
   if [ "$deploy_dir" = "../config" ]; then
     echo "Syncing bash profile:"
-    ssh $RESUME_USER@$deploy_host "sudo cp -v $app_path/config/.bash_profile /home/$RESUME_USER"
-    ssh $RESUME_USER@$deploy_host "source /home/$RESUME_USER/.bash_profile"
+    ssh $deploy_user@$deploy_host "sudo cp -v $app_path/config/.bash_profile /home/$deploy_user"
+    ssh $deploy_user@$deploy_host "source /home/$deploy_user/.bash_profile"
     echo "Placing logrotate config:"
-    ssh $RESUME_USER@$deploy_host "sudo cp -v $app_path/config/logrotate.d/* /etc/logrotate.d/"
+    ssh $deploy_user@$deploy_host "sudo cp -v $app_path/config/logrotate.d/* /etc/logrotate.d/"
   fi
 
   ### Sync crontab
   if [ "$deploy_dir" = "../cron" ]; then
     echo "Syncing crontab"
-    ssh $RESUME_USER@$deploy_host "crontab $app_path/cron/_crontab"
+    ssh $deploy_user@$deploy_host "crontab $app_path/cron/_crontab"
   fi
 done
 
