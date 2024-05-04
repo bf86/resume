@@ -14,6 +14,8 @@ services:
     extends:
       file: base.yml
       service: db
+    # These lines will need to be commented when starting on a new host
+    # otherwise the db won't initialize because the data dir will not be empty
     volumes:
       - ../config/pg_hba.conf:/var/lib/postgresql/data/pg_hba.confg
       - ../config/postgresql.conf:/var/lib/postgresql/data/postgresql.conf
