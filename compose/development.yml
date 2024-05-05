@@ -1,0 +1,47 @@
+version: "3.8"
+services:
+  api:
+    extends:
+      file: base.yml
+      service: api
+    links:
+      - db
+      - cache
+  db:
+    container_name: db
+    extends:
+      file: base.yml
+      service: db
+    # These lines will need to be commented when starting on a new host
+    # otherwise the db won't initialize because the data dir will not be empty
+    volumes:
+      - ../config/pg_hba.conf:/var/lib/postgresql/data/pg_hba.confg
+      - ../config/postgresql.conf:/var/lib/postgresql/data/postgresql.conf
+      - ../ssl/server.crt:/var/lib/postgresql/data/server.crt
+      - ../ssl/server.key:/var/lib/postgresql/data/server.key
+  nginx:
+    extends:
+      file: base.yml
+      service: nginx
+    links:
+      - api
+    volumes:
+      - ../config/nginx-development.conf:/etc/nginx/nginx.conf
+      - ../build:/www/data/html
+      - ../ssl/fullchain.pem:/ssl/cert.pem
+      - ../ssl/privkey.pem:/ssl/key.pem
+  monitor:
+    extends:
+      file: base.yml
+      service: monitor
+    links:
+      - api
+      - db
+      - nginx
+  cache:
+    extends:
+      file: base.yml
+      service: cache
+volumes:
+  db:
+    driver: local
