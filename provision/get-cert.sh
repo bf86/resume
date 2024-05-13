@@ -43,7 +43,8 @@ sudo cp -v /etc/letsencrypt/live/$1/privkey.pem $home/$2/ssl/
 # Certbot requires a host level nginx install
 # But I just want a cert to use in the container
 sudo systemctl stop nginx-agent || true
-sudo apt remove -y nginx nginx-common nginx-core
+sudo apt-get remove -y nginx nginx-common nginx-core
+sudo apt-get purge -y nginx nginx-common nginx-core
 sudo rm -rf /usr/sbin/nginx
 
 # Uninstall Certbot
