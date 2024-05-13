@@ -59,7 +59,8 @@ do
 
   ### Copy
   echo "Copying $deploy_dir:"
-  scp -r "$dir/$deploy_dir" "$deploy_user@$deploy_host:$app_path"
+  echo "rsync -azv -e \"ssh -l $deploy_user\" \"$dir/$deploy_dir\" \"$deploy_user@$deploy_host:$app_path\""
+  rsync -azv -e "ssh -l $deploy_user" "$dir/$deploy_dir" "$deploy_user@$deploy_host:$app_path"
 
   ### Sync bash profile
   ### Place logrotate config
