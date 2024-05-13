@@ -54,7 +54,7 @@ do
   ### Ensure correct owner on config files (Docker changes owner to systedm-coredump)
   if [ "$deploy_dir" = "../config" ]; then
     echo "Setting config file owner:"
-    ssh "$deploy_user@$deploy_host" "sudo chown -v $deploy_user $app_path/config/*"
+    ssh "$deploy_user@$deploy_host" "sudo chown -v $deploy_user $app_path/config/* || true"
   fi
 
   ### Copy
