@@ -17,7 +17,7 @@ fi
 # Generate Certificate Request + Key
 ssl_dir="/ssl"
 [ -d $ssl_dir ] || sudo mkdir $ssl_dir
-openssl req -new -newkey rsa:2048 -nodes -keyout $1.key -out $1.csr
+sudo openssl req -new -newkey rsa:2048 -nodes -keyout $1.key -out $1.csr
 
 # Install Certbot
 # Certbot certs are not recommended
