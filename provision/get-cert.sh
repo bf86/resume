@@ -37,6 +37,7 @@ sudo apt install -y nginx
 sudo certbot certonly --nginx || true
 
 # Place cert in app dir
+# NOTE: Previous certs can be found in /etc/letsencrypt/archive
 home="$HOME"
 sudo cp -v /etc/letsencrypt/live/$1/fullchain.pem $home/$2/ssl/
 sudo cp -v /etc/letsencrypt/live/$1/privkey.pem $home/$2/ssl/
