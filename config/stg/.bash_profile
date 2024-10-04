@@ -3,7 +3,7 @@ source $HOME/.bashrc
 
 # Vars
 export APP_NAME="resume"
-export DNS_NAME="brian86.dev"
+export DNS_NAME="brian86-stg.dev"
 export MONITOR_RECIPIENT="brian.g.fink@gmail.com"
 
 # Docker functions
